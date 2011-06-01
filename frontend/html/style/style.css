@@ -20,16 +20,57 @@
 /*@fontface here*/
 
 /*begin main css*/
-body {
-	background: #fffff6 url('images/bg.png');
-	fon-family: arial, sans-serif;
-}
-div#wrap {
-	margin: 0 auto;
-	width:1000px;
-}
-#header h1 {
-	font-family: Rockwell;
-	font-size: 40px;
-	text-shadow: #fffff6 0 0 1px;
-}
+/*general & typography*/
+	body {
+		background: #fffff6 url('images/bg.png');
+		font-family: arial, sans-serif;
+	}
+/*layout*/
+	div#wrap {
+		margin: 0 auto;
+		width:1000px;
+	}
+	div#header {
+		margin: 20px 0 30px 0;
+	}
+	div#main_content_lhs, div#main_content_mid, div#main_content_rhs {
+		background-color:#FFFFFF;
+		border:#c7c7c7 solid 1px;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		height:100%;
+		overflow:hidden;
+	}
+	div#main_content_lhs {
+		width:230px;
+		float:left;
+	}
+	div#main_content_mid {
+		width:500px;
+		float:left;
+	}
+	div#main_content_rhs {
+		width:230px;
+		float:left;
+	}
+/*header*/
+	#header h1 {
+		font-family: Rockwell;
+		font-size: 40px;
+		text-shadow: #fffff6 0 0 1px;
+	}
+/*middle column*/
+	#report_list li {
+		height:40px;
+	}
+	#report_list img {
+		width:20px;
+		height:20px;
+	}
+	#report_list p, #report_list img {
+		display:inline;
+	}
+	div.report_list_controls {
+		float:right;
+	}
