@@ -1,0 +1,85 @@
+<!--main menu page that shows list of all current reports-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Report Generator | Edit | Basics</title>
+		<link rel="stylesheet" href="style/style.css" type="text/css" media="all" />
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="header">
+				<h1>Report Generator</h1>
+			</div>
+			<div id="main_content">
+				<div id="main_content_lhs">
+					<ul id="nav">
+						<a href="#">
+							<li>	
+								<p>New Report</p>
+								<img src="style/images/newreport.png"></img>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<p>Reports</p>
+								<img src="style/images/reports.png"></img>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<p>Clients</p>
+								<img src="style/images/clients.png"></img>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<p>Email</p>
+								<img src="style/images/email.png"></img>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<p>Settings</p>
+								<img src="style/images/settings.png"></img>
+							</li>
+						</a>
+					</ul>
+				</div>
+				<div id="main_content_rhs_wide">
+					<h2>Report Edit</h2>
+					<h3>Basics</h3>
+					<hr />
+						<label>Report Name</label>
+							<input name="report_name" type="text" />
+						<label>Report Client</label>
+							<input name="report_client" type="text" />
+						<label>Report Date</label>
+							<input name="report_date" type="date" /> 
+						<div id="clearfix"></div>
+						<select id="report_contents_all" size="10">
+							<option>Introduction</option>
+							<option>Property Information &amp; Instructions</option>
+							<option>Rising / Penetrating Dampness Inspection</option>
+							<option>Condensation Report</option>
+							<option>Sketch Plan</option>
+							<option>Timber Survey</option>
+							<option>Summary &amp; Recomendations</option>
+							<option>Your Quote</option>
+							<option>Coptionent Health &amp; Safety Data Sheet</option>
+							<option>Terms &amp; Conditions</option>
+						</select>
+						<div id="report_contents_controls">
+							<a href="#">&#062;</a>
+							<a href="#">&#060;</a>
+						</div>
+						<select id="report_contents_selected" size="10"></select>
+						<div id="report_edit_back_forward">
+							<a href="#">&#060; PREV</a>
+							<a href="#">NEXT &#062;</a>
+				</div>
+			</div>
+			<div id="footer">
+				<p>Designed &amp; Developed by <a href="http://jacobhaslehurst.com">Jacob Haslehurst</a> &amp; <a href="http://charliesomerville.com">Charlie Somerville</a>. &copy; 2011</p>
+		</div>
+	</body>
+</html>

@@ -38,14 +38,13 @@
 	div#main_content{
 		/**/
 	}
-	div#main_content_lhs, div#main_content_mid, div#main_content_rhs {
+	div#main_content_lhs, div#main_content_mid, div#main_content_rhs, div#main_content_rhs_wide {
 		background-color:#FFFFFF;
 		border:#c7c7c7 solid 1px;
 		-webkit-border-radius: 5px;
 		-moz-border-radius: 5px;
 		border-radius: 5px;
 		height:100%;
-		overflow:auto;
 		padding:5px;
 	}
 	div#main_content_lhs {
@@ -62,6 +61,11 @@
 		float:left;
 		margin:0 0 0 10px;
 	}
+	div#main_content_rhs_wide {
+		width:720px;
+		float:left;
+		padding:5px 15px 5px 15px;
+	}
 /*header*/
 	#header h1 {
 		font-family: Rockwell;
@@ -69,6 +73,18 @@
 		text-shadow: #fffff6 0 0 1px;
 		color:#393939;
 		font-weight:normal;
+	}
+/*footer*/
+	#footer p, #footer a{
+		color:#b8b8b8;
+		font-size:14px;
+		text-decoration:none;
+	}
+	#footer a:hover{
+		text-decoration:underline;
+	}
+	div#footer{
+		margin:20px 0 20px;
 	}
 /*left column*/
 	ul#nav{
@@ -98,102 +114,157 @@
 		text-decoration:none;
 		color:#4a4a4a;
 	}
-/*middle column*/
-	ul#report_list {
-		margin: 5px 0 0 0;
-	}
-	#report_list a{
-		text-decoration:none;
-		color:#5e5e5e;
-	}
-	#report_list li {
-		/*height:20px;*/
-		border-bottom:1px solid #EEEEE6;
-		padding:10px 10px 13px 10px;
-	}
-	#report_list li:hover{
-		background-color:#f9f9f0;
-		text-decoration:underline;
-	}
-	#report_list img {
-		width:20px;
-		height:20px;
-	}
-	#report_list p, #report_list img {
-		display:inline;
-	}
-	div.report_list_controls {
-		float:right;
-		opacity:0.5;
-		text-decoration:none;
-	}
-	div.report_list_controls:hover{
-		opacity:0.7;
-	}
-	.report_list_controls img {
-		margin:-2px 0 0 0;
-	}
-	#report_list p{
-		font-size: 12px;
-		color:#5e5e5e;
-	}
-	p.street{
-	}
-	p.suburb{
-		/*css to make the suburb in its' own column goes here*/
-	}
-/*right hand side*/
-	#main_content_rhs h2 {
-		font-size:14px;
-		color:#5e5e5e;
-		line-height:10px;
-		margin:10px 0 0 0;
-		text-align:center;
-	}
-	#main_content_rhs hr {
-		color:#EEEEE6;
-		background-color:#EEEEE6;
-		width:200px;
-		height:1px;
-		border:none;
-		margin:20px 0;
-	}
-	#main_content_rhs img {
-		border:#efefef solid 1px;
-		margin:0 25px;
-		width:150px;
-	}
-	p.report_metainfo{
-		font-size:11px;
-		line-height:18px;
-		color:#5e5e5e;
-		margin:0 0 0 3px;
-	}
-	#main_content_rhs h3{
-		font-size:15px;
-		color:#5e5e5e;
-	}
-	ul#report_contents{
-		margin:10px 0 0 0;
-		list-style-type:disc;
-	}
-	#report_contents li{
-		line-height:16px;
-		color:#5e5e5e;
-		list-style:disc;
-		margin:0 0 0 20px;
-		font-size:13px;
-		padding:0 0 5px 0;
-	}
-/*footer*/
-	#footer p, #footer a{
-		color:#b8b8b8;
-		font-size:14px;
-		text-decoration:none;
-	}
-	#footer a:hover{
-		text-decoration:underline;
-	}
-	div#footer{
-		margin:20px 0 20px;
-	}
+/*main list page specific*/
+	/*middle column*/
+		ul#report_list {
+			margin: 5px 0 0 0;
+		}
+		#report_list a{
+			text-decoration:none;
+			color:#5e5e5e;
+		}
+		#report_list li {
+			/*height:20px;*/
+			border-bottom:1px solid #EEEEE6;
+			padding:10px 10px 13px 10px;
+		}
+		#report_list li:hover{
+			background-color:#f9f9f0;
+			text-decoration:underline;
+		}
+		#report_list img {
+			width:20px;
+			height:20px;
+		}
+		#report_list p, #report_list img {
+			display:inline;
+		}
+		div.report_list_controls {
+			float:right;
+			opacity:0.5;
+			text-decoration:none;
+		}
+		div.report_list_controls:hover{
+			opacity:0.7;
+		}
+		.report_list_controls img {
+			margin:-2px 0 0 0;
+		}
+		#report_list p{
+			font-size: 12px;
+			color:#5e5e5e;
+		}
+		p.street{
+		}
+		p.suburb{
+			/*css to make the suburb in its' own column goes here*/
+		}
+	/*right hand side*/
+		#main_content_rhs h2 {
+			font-size:14px;
+			color:#5e5e5e;
+			line-height:10px;
+			margin:10px 0 0 0;
+			text-align:center;
+		}
+		#main_content_rhs hr {
+			color:#EEEEE6;
+			background-color:#EEEEE6;
+			width:200px;
+			height:1px;
+			border:none;
+			margin:20px 0;
+		}
+		#main_content_rhs img {
+			border:#efefef solid 1px;
+			margin:0 25px;
+			width:150px;
+		}
+		p.report_metainfo{
+			font-size:11px;
+			line-height:18px;
+			color:#5e5e5e;
+			margin:0 0 0 3px;
+		}
+		#main_content_rhs h3{
+			font-size:15px;
+			color:#5e5e5e;
+		}
+		ul#report_contents{
+			margin:10px 0 0 0;
+			list-style-type:disc;
+		}
+		#report_contents li{
+			line-height:16px;
+			color:#5e5e5e;
+			list-style:disc;
+			margin:0 0 0 20px;
+			font-size:13px;
+			padding:0 0 5px 0;
+		}
+/*report edit page*/
+	/*rhs column*/
+		select#report_contents_all, select#report_contents_selected {
+			width:300px;
+			display:inline;
+			float:left;
+		}
+		div#report_contents_controls{
+			display:inline;
+			width:50px;
+			float:left;
+			margin:50px 0 0 0;
+		}
+		#report_contents_controls a{
+			display:block;
+			color:#AAA;
+			text-decoration:none;
+			font-size:20px;
+			text-shadow:#FFF 0 0 1px;
+			text-align:center;
+			margin: 0 0 10px 0;
+		}
+	/*Typography*/
+		#main_content_rhs_wide h2{
+			color:#4a4a4a;
+			font-weight:normal;
+			font-size:25px;
+			margin:25px 30px 5px 0;
+			display:inline;
+		}
+		#main_content_rhs_wide h3{
+			color:#898989;
+			font-weight:normal;
+			/*font-style:italic;*/
+			font-size:18px;
+			display:inline;
+			text-align:right;
+		}
+		#main_content_rhs_wide hr {
+			color:#EEEEE6;
+			background-color:#EEEEE6;
+			height:1px;
+			border:none;
+			margin:5px 0 30px 0;
+		}
+		select#report_contents_selected, select#report_contents_all{
+			width:330px;
+		}
+		div#report_edit_back_forward{
+			float:right;
+			margin:30px 5px 10px 0;
+		}
+		#report_edit_back_forward a{
+			border:#EEEEE6 solid 1px;
+			color:#898989;
+			padding:5px;
+			text-decoration:none;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
+		#report_edit_back_forward a:hover{
+			border:#898989 solid 1px;
+			color:#FFFFFF;
+			background-color:#898989;
+		}
