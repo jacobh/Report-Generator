@@ -255,6 +255,9 @@
 		#main_content_rhs_wide .form_fields hr{
 			margin:25px 0 25px 0;
 		}
+		#main_content_rhs_wide .form_fields input, #main_content_rhs_wide .form_fields textarea{
+			border:1px solid #BABABA;
+		}
 	/*Typography*/
 		#main_content_rhs_wide h2{
 			color:#4a4a4a;
@@ -298,4 +301,24 @@
 			border:#898989 solid 1px;
 			color:#FFFFFF;
 			background-color:#898989;
+		}
+	/*Page specific things*/
+		table#conden_rep_table{
+			margin:15px 0 0 0;
+		}
+		#conden_rep_table p{
+			font-size:12px;
+			margin:0 15px 10px 0;
+		}
+		#conden_rep_table input{
+			width:120px;
+			margin:0 15px 10px 0;
+		}
+		.list_add_new a{
+			color:#666;
+			font-size:13px;
+			text-decoration:none;
+		}
+		.list_add_new a:hover{
+			text-decoration:underline;
 		}

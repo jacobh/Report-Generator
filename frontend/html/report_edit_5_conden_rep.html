@@ -49,7 +49,50 @@
 					<h2>Report Edit</h2>
 					<h3>Condensation Report</h3>
 					<hr />
-					<!--actual content goes here-->
+					<div class="form_fields">
+						<label>Opening Infobox</label>
+							<textarea name="conden_rep_opening_information">
+Moisture is present in the air in our homes at all times, the actual amount of moisture that can be present in the air is directly related to the ambient temperature and is measured as Relative Humidity, the warmer the air, the more moisture it can hold. When the air cannot hold any more moisture it is said to be saturated (100% RH) and the temperature at which this point will be reached and condensation will occur is known as its Dew Point.
+
+Condensation is largely caused by the introduction of excessive moisture from within the building, usually brought about by the lifestyle of the occupants i.e. cooking, bathing, drying clothes on radiators etc. The moisture patterns associated with condensation are distinct from other forms of dampness and will have been taken into account when compiling a moisture profile of the building.</textarea>
+						<label>Relative Humidity Readings Information</label>
+							<textarea name="conden_rep_relative_humidity_readings_information">
+Relative humidity readings were taken using a digital hygrometer in the rooms listed below to determine if high levels of moisture were present in the air which could lead to the onset of condensation.</textarea>
+						<hr />
+						<h4>Readings</h4>
+						<table id="conden_rep_table">
+							<tr>
+								<td width="200px"><p>Room</p></td>
+								<td><p>Air Temperature</p></td>
+								<td><p>Relative Humidity</p></td>
+								<td><p>Dew Point</p></td>
+							</tr>
+							<tr>
+								<td><p>Front Reception Room</p></td>
+								<td><input name="conden_rep_front_reception_room_air_temperature" value="23&deg;C" /></td>
+								<td><input name="conden_rep_front_reception_room_relative_humidity" value="45%" /></td>
+								<td><input name="conden_rep_front_reception_room_dew_point" value="17&deg;C" /></td>
+							</tr>
+							<tr>
+								<td><p>Rear Reception Room</p></td>
+								<td><input name="conden_rep_rear_reception_room_air_temperature" value="23&deg;C" /></td>
+								<td><input name="conden_rep_rear_reception_room_relative_humidity" value="45%" /></td>
+								<td><input name="conden_rep_rear_reception_room_dew_point" value="17&deg;C" /></td>
+							</tr>
+							<tr>
+								<td><p>Kitchen Area</p></td>
+								<td><input name="conden_rep_kitchen_area_air_temperature" value="19&deg;C" /></td>
+								<td><input name="conden_rep_front_reception_room_relative_humidity" value="65%" /></td>
+								<td><input name="conden_rep_front_reception_room_dew_point" value="14&deg;C" /></td>
+							</tr>
+						</table>
+						<hr />
+						<label>Conclusion</label>
+							<textarea name="conden_rep_conclusion">
+At the time of our inspection there was visible evidence of condensation which have been indicated in the enclosed sketch plan.
+
+There are several methods available to combat the effects of condensation and we have chosen what we believe to be the most effective method and detailed it in the 'recommendations' section of the report where we have addressed the issue in further detail.</textarea>
+					</div>
 					<div id="report_edit_back_forward">
 						<a href="report_edit_4_damp_inspec.html">&#060; PREV</a>
 						<a href="report_edit_6_sketch.html">NEXT &#062;</a>
