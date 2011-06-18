@@ -50,10 +50,52 @@
 					<h3>Summary &amp; Recommendations</h3>
 					<hr />
 					<div class="form_fields">
-						<label>Summary</label>
+						<label>Summary</label><!--this bit should roll up-->
 							<textarea name="summ_rec_summary">
 Overall the property appears to be in reasonable condition and there is no evidence to suggest that there is any areas which would be of major concern, we would suggest installing additional air vents to the areas indicated in the enclosed sketch plan to increase the ventilation to the sub floor timbers and have submitted a quotation for your information, however as access was limited in several areas we strongly suggest a further visit when full access is available.</textarea>
-						
+						<hr />
+						<h4>Recommendations</h4>
+						<label>Add Existing Item</label><!--this could possibly be an ajax-y search box instead-->
+							<select name="summ_rec_add_existing_item">
+								<option>001 - install Additional Air Vents</option>
+								<option>002 - Install Retrofit DPC</option>
+							</select>
+							<a class="summ_rec_button" href="#">Add</a>
+						<div class="clearfix"></div>
+						<label>Add New item</label><!--this bit should roll up-->
+							<input name="summ_rec_add_new_item_name" type="text" placeholder="Item Name" />
+							<textarea name="summ_rec_add_new_item_description" placeholder="Item Description"></textarea>
+							<a class="summ_rec_button" href="#">Add</a>
+						<div class="clearfix"></div>
+						<h5>Current Items</h5>
+						<table><tbody  id="summ_rec_current_items_table">
+							<tr>
+								<td width="100px"><p>Item Ref.</p></td>
+								<td width="550px"><p>Description</p></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><p>001</p></td>
+								<td>
+									<h4>Install additional air vents</h4>
+									<p>By increasing the ventilation, this will allow for a far more efficient way in which
+									the air is circulated in this area which will decrease the amount of moisture
+									which can be transferred to the sub floor timbers.</p>
+								</td>
+								<td><a class="summ_rec_button" href="#">Delete</a></td>
+							</tr>
+							<tr>
+								<td><p>002</p></td>
+								<td>
+									<h4>Install retrofit DPC</h4>
+									<p>The survey highlighted that the existing damp proof course had failed in the
+									areas highlighted in the enclosed sketch plan, therefore we would propose
+									installing a new DPC in this area to prevent future outbreaks of reising
+									dampness.</p>
+								</td>
+								<td><a class="summ_rec_button" href="#">Delete</a></td>
+							</tr>
+						</tbody></table>
 					</div>
 					<div id="report_edit_back_forward">
 						<a href="report_edit_7_timber_surv.html">&#060; PREV</a>
