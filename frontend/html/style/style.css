@@ -264,10 +264,12 @@
 		#main_content_rhs_wide h3{
 			color:#898989;
 			font-weight:normal;
-			/*font-style:italic;*/
 			font-size:18px;
 			display:inline;
-			text-align:right;
+		}
+		#main_content_rhs_wide .form_fields h3{
+			display:block;
+			margin:0 0 5px 0;
 		}
 		#main_content_rhs_wide hr {
 			color:#EEEEE6;
@@ -275,9 +277,6 @@
 			height:1px;
 			border:none;
 			margin:5px 0 30px 0;
-		}
-		select#report_contents_selected, select#report_contents_all{
-			width:330px;
 		}
 		div#report_edit_back_forward{
 			float:right;
@@ -298,6 +297,9 @@
 			background-color:#898989;
 		}
 	/*Page specific things*/
+		select#report_contents_selected, select#report_contents_all{
+			width:330px;
+		}
 		table#conden_rep_table{
 			margin:15px 0 0 0;
 		}
