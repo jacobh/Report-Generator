@@ -1,4 +1,4 @@
-<!--main menu page that shows list of all current reports-->
+<!--condensation report-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -67,27 +67,33 @@ Relative humidity readings were taken using a digital hygrometer in the rooms li
 								<td><p>Relative Humidity</p></td>
 								<td><p>Dew Point</p></td>
 							</tr>
-							<tr>
-								<td><p>Front Reception Room</p></td>
-								<td><input name="conden_rep_front_reception_room_air_temperature" value="23&deg;C" /></td>
-								<td><input name="conden_rep_front_reception_room_relative_humidity" value="45%" /></td>
-								<td><input name="conden_rep_front_reception_room_dew_point" value="17&deg;C" /></td>
+							<tr><!--this row is just placeholder-->
+								<td><input name="conden_rep_area_room_name" value="Front Reception Room" /></td>
+								<td><input name="conden_rep_area_room_air_temperature" value="23&deg;C" /></td>
+								<td><input name="conden_rep_area_relative_humidity" value="45%" /></td>
+								<td><input name="conden_rep_area_room_dew_point" value="17&deg;C" /></td>
+								<td><a href="#" class="summ_rec_button">Delete</a></td>
 							</tr>
 							<tr>
-								<td><p>Rear Reception Room</p></td>
-								<td><input name="conden_rep_rear_reception_room_air_temperature" value="23&deg;C" /></td>
-								<td><input name="conden_rep_rear_reception_room_relative_humidity" value="45%" /></td>
-								<td><input name="conden_rep_rear_reception_room_dew_point" value="17&deg;C" /></td>
+								<td><input name="conden_rep_area_room_name" value="" /></td>
+								<td><input name="conden_rep_area_room_air_temperature" value="" /></td>
+								<td><input name="conden_rep_area_relative_humidity" value="" /></td>
+								<td><input name="conden_rep_area_room_dew_point" value="" /></td>
+								<td><a href="#" class="summ_rec_button">Delete</a></td>
 							</tr>
 							<tr>
-								<td><p>Kitchen Area</p></td>
-								<td><input name="conden_rep_kitchen_area_air_temperature" value="19&deg;C" /></td>
-								<td><input name="conden_rep_front_reception_room_relative_humidity" value="65%" /></td>
-								<td><input name="conden_rep_front_reception_room_dew_point" value="14&deg;C" /></td>
-							</tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>
+								<!--when this is clicked it adds another blank row to the table-->
+									<a href="#" class="summ_rec_button">Add</a>
+								</td>
 						</table>
 						<hr />
 						<label>Conclusion</label>
+							<!--this is just placeholder too-->
 							<textarea name="conden_rep_conclusion">
 At the time of our inspection there was visible evidence of condensation which have been indicated in the enclosed sketch plan.
 

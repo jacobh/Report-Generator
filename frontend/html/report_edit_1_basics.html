@@ -1,4 +1,4 @@
-<!--main menu page that shows list of all current reports-->
+<!--report basics-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -51,12 +51,19 @@
 					<hr />
 						<div class="form_fields">
 							<label>Address</label>
-								<input name="address" type="text" />
+								<input name="basics_address_line1" type="text" placeholder="Street Address Line 1" />
+								<input name="basics_address_line2" type="text" placeholder="Street Address Line 2" />
+								<input name="basics_address_city" type="text" placeholder="City" />
+								<input name="basics_address_postcode" type="text" placeholder="Postcode" />
 							<label>Client Name</label>
-								<input name="client_name" type="text" />
+								<input name="basics_client_name" type="text" />
 							<label>Date</label>
-								<input name="date" type="date" />
+								<input name="basics_date" type="text" />
 						</div>
+						<!--when an item is double clicked or the > is clicked it gets put onto the right side
+						when an item on the right gets double clicked or the < is clicked it gets removed from the right
+
+						this controls which subsequent menus show up, the table of contents will also be determined by this-->
 						<select id="report_contents_all" size="10">
 							<option>Introduction</option>
 							<option>Property Information &amp; Instructions</option>
@@ -75,7 +82,7 @@
 						</div>
 						<select id="report_contents_selected" size="10"></select>
 						<div id="report_edit_back_forward">
-							<a href="#">&#060; PREV</a>
+							<a href="#">&#060; PREV</a><!--probably going to grey this option out / remove it-->
 							<a href="report_edit_2_intro.html">NEXT &#062;</a>
 				</div>
 			</div>

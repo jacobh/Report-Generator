@@ -1,4 +1,4 @@
-<!--main menu page that shows list of all current reports-->
+<!--summaries / recomendations page-->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -50,23 +50,24 @@
 					<h3>Summary &amp; Recommendations</h3>
 					<hr />
 					<div class="form_fields">
-						<label>Summary</label><!--this bit should roll up-->
+						<label>Summary</label><!--this is default text-->
 							<textarea name="summ_rec_summary">
 Overall the property appears to be in reasonable condition and there is no evidence to suggest that there is any areas which would be of major concern, we would suggest installing additional air vents to the areas indicated in the enclosed sketch plan to increase the ventilation to the sub floor timbers and have submitted a quotation for your information, however as access was limited in several areas we strongly suggest a further visit when full access is available.</textarea>
 						<hr />
 						<h4>Recommendations</h4>
-						<label>Add Existing Item</label><!--this could possibly be an ajax-y search box instead-->
+						<label>Add Existing Item</label><!--probably have an options page to manage 'items'-->
 							<select name="summ_rec_add_existing_item">
 								<option>001 - install Additional Air Vents</option>
 								<option>002 - Install Retrofit DPC</option>
 							</select>
-							<a class="summ_rec_button" href="#">Add</a>
+							<a class="summ_rec_button" href="#">Add</a><!--adds the selected items to the current items table-->
 						<div class="clearfix"></div>
-						<label>Add New item</label><!--this bit should roll up-->
+						<label>Add New item</label>
 							<input name="summ_rec_add_new_item_name" type="text" placeholder="Item Name" />
 							<input name="summ_rec_add_new_item_price" type="text" placeholder="Item Price" />
 							<textarea name="summ_rec_add_new_item_description" placeholder="Item Description"></textarea>
-							<a class="summ_rec_button" href="#">Add</a>
+							<a class="summ_rec_button" href="#">Add</a><!--when this is clicked it adds the new item to a db table so that it can 
+							be used any time in the future, it also adds it to the current items table below-->
 						<div class="clearfix"></div>
 						<h5>Current Items</h5>
 						<table><tbody  id="summ_rec_current_items_table">
@@ -75,7 +76,7 @@ Overall the property appears to be in reasonable condition and there is no evide
 								<td width="550px"><p>Description</p></td>
 								<td></td>
 							</tr>
-							<tr>
+							<tr><!--these two items are just placeholder-->
 								<td><p>001</p></td>
 								<td>
 									<h4>Install additional air vents</h4>
@@ -83,7 +84,7 @@ Overall the property appears to be in reasonable condition and there is no evide
 									the air is circulated in this area which will decrease the amount of moisture
 									which can be transferred to the sub floor timbers.</p>
 								</td>
-								<td><a class="summ_rec_button" href="#">Delete</a></td>
+								<td><a class="summ_rec_button" href="#">Delete</a></td><!--this would delete the item from the current items list-->
 							</tr>
 							<tr>
 								<td><p>002</p></td>
