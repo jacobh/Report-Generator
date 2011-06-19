@@ -1,0 +1,390 @@
+/*Main css file for the pdf report generator*/
+/*Reset*/
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, textarea {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}
+	body {line-height: 1;}
+	ol, ul, li {list-style: none;}
+	blockquote, q {quotes: none;}
+	blockquote:before, blockquote:after, q:before, q:after {content: '';content: none;}
+	:focus {outline: 0;}
+	ins {text-decoration: none;}
+	del {text-decoration: line-through;}
+	table {border-collapse: collapse;border-spacing: 0;}
+/*Clearfix, hopefully I can avoid using this*/
+	.clearfix:after {
+		content:".";
+		display:block;
+		height:0;
+		clear:both;
+		visibility:hidden;
+	}
+/*@fontface here*/
+
+/*begin main css*/
+/*general & typography*/
+	body {
+		background: #fffff6 url('images/bg.png');
+		font-family: arial, sans-serif;
+		height:100%;
+	}
+/*layout*/
+	div#wrap {
+		margin: 0 auto;
+		width:1000px;
+		min-height:100%;
+	}
+	div#header {
+		margin: 15px 0 20px 0;
+	}
+	div#main_content{
+		/**/
+	}
+	div#main_content_lhs, div#main_content_mid, div#main_content_rhs, div#main_content_rhs_wide {
+		background-color:#FFFFFF;
+		border:#c7c7c7 solid 1px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		height:100%;
+		padding:5px;
+	}
+	div#main_content_lhs {
+		width:210px;
+		float:left;
+		margin:0 10px 0 0;
+	}
+	div#main_content_mid {
+		width:520px;
+		float:left;
+	}
+	div#main_content_rhs {
+		width:210px;
+		float:left;
+		margin:0 0 0 10px;
+	}
+	div#main_content_rhs_wide {
+		width:720px;
+		float:left;
+		padding:5px 15px 5px 15px;
+	}
+/*header*/
+	#header h1 {
+		font-family: Rockwell;
+		font-size: 40px;
+		text-shadow: #fffff6 0 0 1px;
+		color:#393939;
+		font-weight:normal;
+	}
+/*footer*/
+	#footer p, #footer a{
+		color:#b8b8b8;
+		font-size:14px;
+		text-decoration:none;
+	}
+	#footer a:hover{
+		text-decoration:underline;
+	}
+	div#footer{
+        clear:both;
+		margin:20px 0 20px;
+	}
+/*left column*/
+	ul#nav{
+		/*margin:10px 0 0 0;*/
+	}
+	#nav p, #nav img {
+		display:inline;
+	}
+	#nav li{
+		height:32px;
+		border-bottom:1px solid #EEEEE6;
+		padding:15px 5px 5px 5px;
+	}
+	#nav li:hover{
+		background-color:#f9f9f0;
+	}
+	#nav img {
+		float:right;
+		margin:-7px 5px 0 0;
+	}
+	#nav p{
+		height:32px;
+		font-size:15px;
+		color:#4a4a4a;
+	}
+	#nav a{
+		text-decoration:none;
+		color:#4a4a4a;
+	}
+/*main list page specific*/
+	/*middle column*/
+		ul#report_list {
+			margin: 5px 0 0 0;
+		}
+		#report_list a{
+			text-decoration:none;
+			color:#5e5e5e;
+		}
+		#report_list li {
+			/*height:20px;*/
+			border-bottom:1px solid #EEEEE6;
+			padding:10px 10px 13px 10px;
+		}
+		#report_list li:hover{
+			background-color:#f9f9f0;
+			text-decoration:underline;
+		}
+		#report_list img {
+			width:20px;
+			height:20px;
+		}
+		#report_list p, #report_list img {
+			display:inline;
+		}
+		div.report_list_controls {
+			float:right;
+			opacity:0.5;
+			text-decoration:none;
+		}
+		div.report_list_controls:hover{
+			opacity:0.7;
+		}
+		.report_list_controls img {
+			margin:-2px 0 0 0;
+		}
+		#report_list p{
+			font-size: 12px;
+			color:#5e5e5e;
+		}
+		p.street{
+		}
+		p.suburb{
+			/*css to make the suburb in its' own column goes here*/
+		}
+	/*right hand side*/
+		#main_content_rhs h2 {
+			font-size:14px;
+			color:#5e5e5e;
+			line-height:10px;
+			margin:10px 0 0 0;
+			text-align:center;
+		}
+		#main_content_rhs hr {
+			color:#EEEEE6;
+			background-color:#EEEEE6;
+			width:200px;
+			height:1px;
+			border:none;
+			margin:20px 0;
+		}
+		#main_content_rhs img {
+			border:#efefef solid 1px;
+			margin:0 25px;
+			width:150px;
+		}
+		p.report_metainfo{
+			font-size:11px;
+			line-height:18px;
+			color:#5e5e5e;
+			margin:0 0 0 3px;
+		}
+		#main_content_rhs h3{
+			font-size:15px;
+			color:#5e5e5e;
+		}
+		ul#report_contents{
+			margin:10px 0 0 0;
+			list-style-type:disc;
+		}
+		#report_contents li{
+			line-height:16px;
+			color:#5e5e5e;
+			list-style:disc;
+			margin:0 0 0 20px;
+			font-size:13px;
+			padding:0 0 5px 0;
+		}
+/*report edit page*/
+	/*rhs column*/
+		select#report_contents_all, select#report_contents_selected {
+			width:300px;
+			display:inline;
+			float:left;
+		}
+		div#report_contents_controls{
+			display:inline;
+			width:50px;
+			float:left;
+			margin:50px 0 0 0;
+		}
+		#report_contents_controls a{
+			display:block;
+			color:#AAA;
+			text-decoration:none;
+			font-size:20px;
+			text-shadow:#FFF 0 0 1px;
+			text-align:center;
+			margin: 0 0 10px 0;
+		}
+		div.form_fields{
+			margin:0 0 30px 0;
+		}
+		.form_fields label, .form-fields input{
+			display:block;
+			margin:10px 0 3px 0;
+		}
+		.form_fields label{
+			font-size:12px;
+		}
+		.form_fields input, textarea, select{
+			width:700px;
+			font-family:arial;
+			font-size:14px;
+			line-height:18px;
+			color:#666;
+		}
+		.form_fields textarea{
+			height:150px;
+		}
+		.form_fields textarea:focus, .form_fields input:focus{
+			color:#000;
+		}
+		#main_content_rhs_wide .form_fields hr{
+			margin:25px 0 25px 0;
+		}
+		#main_content_rhs_wide .form_fields input, #main_content_rhs_wide .form_fields textarea{
+			border:1px solid #BABABA;
+		}
+	/*Typography*/
+		#main_content_rhs_wide h2{
+			color:#4a4a4a;
+			font-weight:normal;
+			font-size:25px;
+			margin:25px 30px 5px 0;
+			display:inline;
+		}
+		#main_content_rhs_wide h3{
+			color:#898989;
+			font-weight:normal;
+			font-size:18px;
+			display:inline;
+		}
+		#main_content_rhs_wide .form_fields h3{
+			display:block;
+			margin:0 0 5px 0;
+		}
+		#main_content_rhs_wide hr {
+			color:#EEEEE6;
+			background-color:#EEEEE6;
+			height:1px;
+			border:none;
+			margin:5px 0 30px 0;
+		}
+		div#report_edit_back_forward{
+			float:right;
+			margin:30px 5px 10px 0;
+		}
+		#report_edit_back_forward input{
+			border:#EEEEE6 solid 1px;
+			background-color:#dddddd;
+			color:#666666;
+			padding:5px;
+			font-size:16px;
+			text-decoration:none;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
+		#report_edit_back_forward input:hover{
+			border:#898989 solid 1px;
+			color:#FFFFFF;
+			background-color:#898989;
+		}
+	/*Page specific things*/
+		select#report_contents_selected, select#report_contents_all{
+			width:330px;
+		}
+		table#conden_rep_table{
+			margin:15px 0 0 0;
+		}
+		#conden_rep_table p{
+			font-size:12px;
+			margin:0 15px 10px 0;
+		}
+		#conden_rep_table input{
+			width:120px;
+			margin:0 15px 10px 0;
+		}
+		.list_add_new a, #main_content_rhs_wide a.summ_rec_button{
+			color:#666;
+			font-size:13px;
+			text-decoration:none;
+		}
+		.list_add_new a:hover, #main_content_rhs_wide a.summ_rec_button:hover{
+			text-decoration:underline;
+		}
+		#main_content_rhs_wide a.summ_rec_button{
+			float:right;
+			margin:5px 20px 0 0;
+		}
+		tbody#summ_rec_current_items_table{
+			margin:10px 0 0 0;
+			display:block;
+		}
+		#summ_rec_current_items_table tr{
+			display:block;
+			margin:0 0 15px 0;
+			padding:0 0 8px 0;
+			border-bottom:1px solid #aaaaaa;
+		}
+		#summ_rec_current_items_table h4{
+			color:#575757;
+		}
+		#summ_rec_current_items_table p{
+			color:#666666;
+		}
+	/*login page*/
+		div#wrap_login{
+			width:470px;
+			margin:100px auto 0 auto;
+		}
+		#wrap_login p, #wrap_login h1{
+			text-align:center;
+		}
+		div#login_area{
+			background-color:#FFFFFF;
+			border:1px solid #c7c7c7;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+			padding:15px;
+		}
+		#login_area label, #login_area input{
+			display:block;
+		}
+		#login_area label{
+			font-size:14px;
+			margin:0 0 3px 0;
+			color:#1f1f1f;
+		}
+		#login_area input{
+			width:100%;
+			height:30px;
+			font-size:20px;
+			border:1px solid #dcdcdc;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
+		input#submit{
+			margin:5px 0px 0 0;
+			width:100px;
+			float:right;
+			color:#898989;
+			background-color:#FFFFFF;
+		}
+		input#submit:hover{
+			border:#898989 solid 1px;
+			color:#FFFFFF;
+			background-color:#898989;
+			cursor:pointer;
+		}
