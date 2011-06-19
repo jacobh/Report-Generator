@@ -7,9 +7,9 @@ if(!isset($_SESSION['pass']) || $_SESSION['pass'] !== $config['login']['pass']) 
 			$_SESSION["pass"] = $config["login"]["pass"];
 			redirect($_SERVER['REQUEST_URI']);
 		} else {
-			view("login", array("error" => true));
+			view("login", array("error" => true), false);
 		}
 	} else {
-		view("login");
+		view("login", array(), false);
 	}
 }
