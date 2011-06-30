@@ -4,12 +4,29 @@ class ModelBase {
 	
 	private static $pdo;
 	
-	public function __construct($obj = array()) {
+	private function __construct($obj = array(), $marshal = true) {
 		$this->columns = array();
 		foreach($obj as $k=>$v) {
 			$this->$k = $v;
 			$this->columns[] = $k;
 		}
+		if($marshal) {
+			$this->marshal_from_db();
+		}
+	}
+	
+	public static function create($data = array()) {
+		$table_name = self::table_name();
+		$class_name = get_called_class();
+		self::$pdo->query("INSERT INTO $table_name () VALUES ()");
+		$stmt = self::$pdo->query("SELECT * FROM $table_name WHERE id = LAST_INSERT_ID()");
+		$obj = new $class_name($stmt->fetch(PDO::FETCH_ASSOC), false);
+		$obj->created_at = time();
+		foreach($data as $k => $v) {
+			$obj->$k = $v;
+		}
+		$obj->save();
+		return $obj;
 	}
 	
 	public function save() {
@@ -19,17 +36,40 @@ class ModelBase {
 		$table_name = self::table_name();
 		$sets = "";
 		$params = array();
-		foreach($this->columns as $col) {
-			if($col == "id") continue;
-			$params[] = $this->$col;
+		foreach($this->marshal_to_db() as $k=>$v) {
+			if($k == "id") continue;
+			$params[] = $v;
 			if($sets != "") {
 				$sets .= ", ";
 			}
-			$sets .= "$col = ? ";
+			$sets .= "$k = ? ";
 		}
 		$stmt = self::$pdo->prepare("UPDATE $table_name SET $sets WHERE id = ?");
 		$params[] = $this->id;
 		$stmt->execute($params);
+	}
+	
+	private function marshal_to_db() {
+		$data = array();
+		foreach($this->columns as $col) {
+			if(isset($this->on_save[$col])) {
+				$fn = $this->on_save[$col];
+				$data[$col] = $fn($this->$col);
+			} else {	
+				$data[$col] = $this->$col;
+			}
+		}
+		return $data;
+	}
+	
+	
+	private function marshal_from_db() {
+		foreach($this->columns as $col) {
+			if(isset($this->on_restore[$col])) {
+				$fn = $this->on_restore[$col];
+				$this->$col = $fn($this->$col);
+			}
+		}
 	}
 	
 	public function __get($name) {

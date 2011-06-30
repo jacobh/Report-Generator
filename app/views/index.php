@@ -8,7 +8,7 @@
 			</a>
 			<div class="report_list_controls">
 				<a href="#"><img src="style/images/download.png"></img></a>
-				<a href="edit_report_1.php?report_id=<?php h($report->id) ?>"><img src="style/images/edit.png"></img></a>
+				<a href="edit_report.php?section=1&amp;report_id=<?php h($report->id) ?>"><img src="style/images/edit.png"></img></a>
 				<a href="delete_report.php?report_id=<?php h($report->id) ?>" onclick="return confirm('Are you sure? This action is permanent.');"><img src="style/images/delete.png"></img></a>
 			</div>
 		</li>

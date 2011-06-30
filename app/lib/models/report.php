@@ -2,17 +2,28 @@
 
 class Report extends ModelBase {
 	public static $contents_ids = array(
-		1 => array( "title" => "Introduction", "module" => "introduction" ),
-		2 => array( "title" => "Property Information & Instructions", "module" => "information" ),
-		3 => array( "title" => "Rising / Penetrating Dampness Inspection", "module" => "dampness" ),
-		4 => array( "title" => "Condensation Report", "module" => "condensation" ),
-		5 => array( "title" => "Sketch Plan", "module" => "sketch" ),
-		6 => array( "title" => "Timber Survey", "module" => "timber" ),
-		7 => array( "title" => "Summary & Recommendations", "module" => "summary" ),
-		8 => array( "title" => "Your Quote", "module" => "quote" ),
-		9 => array( "title" => "Coptionent Health & Safety Data Sheet", "module" => "datasheet" ),
-		10 => array( "title" => "Terms & Conditions", "module" => "terms" ),
+		2 => array( "title" => "Introduction", "module" => "introduction" ),
+		3 => array( "title" => "Property Information & Instructions", "module" => "information" ),
+		4 => array( "title" => "Rising / Penetrating Dampness Inspection", "module" => "dampness" ),
+		5 => array( "title" => "Condensation Report", "module" => "condensation" ),
+		6 => array( "title" => "Sketch Plan", "module" => "sketch" ),
+		7 => array( "title" => "Timber Survey", "module" => "timber" ),
+		8 => array( "title" => "Summary & Recommendations", "module" => "summary" ),
+		9 => array( "title" => "Your Quote", "module" => "quote" ),
+		10 => array( "title" => "Coptionent Health & Safety Data Sheet", "module" => "datasheet" ),
+		11 => array( "title" => "Terms & Conditions", "module" => "terms" ),
 	);
+	
+	protected $has_many = array("report_contents");
+	
+	public function find_contents($section) {
+		foreach($this->report_contents as $c) {
+			if($c->type == $section) {
+				return $c;
+			}
+		}
+		return NULL;
+	}
 	
 	public function nextContentsAfter($id) {
 		$carr = explode(",", $this->contents);
@@ -26,13 +37,13 @@ class Report extends ModelBase {
 	
 	public function previousContentsBefore($id) {
 		$carr = explode(",", $this->contents);
-		$ret = NULL;
+		$ret = 1;
 		foreach($carr as $next) {
 			if($next >= $id) {
 				return $ret;
 			}
 			$ret = $next;
 		}
-		return NULL;
+		return 1;
 	}
 }

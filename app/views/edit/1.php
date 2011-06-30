@@ -2,8 +2,9 @@
 	<h2>Report Edit</h2>
 	<h3>Basics</h3>
 	<hr />
-	<form method="post" action="edit_report_1.php">
+	<form method="post">
 		<input type="hidden" name="report_id" value="<?php h($report->id) ?>">
+		<input type="hidden" name="section" value="1">
 		<div class="form_fields">
 			<label>Address</label>
 				<input name="basics[street_address]" type="text" placeholder="Street Address Line 1" value="<?php h($report->street_address); ?>" />

@@ -39,7 +39,13 @@ function view($name, $vars = array(), $use_layout = true) {
 	exit;
 }
 
-function redirect($uri) {
+function redirect($uri, $params = array()) {
+	if(count($params)) {
+		$uri .= "?";
+	}
+	foreach($params as $k=>$v) {
+		$uri .= "&$k=" . urlencode($v);
+	}
 	header("Location: $uri");
 	exit;
 }
