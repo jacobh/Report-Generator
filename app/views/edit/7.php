@@ -5,7 +5,7 @@
 	<form method="post">
 		<div class="form_fields">
 			<label>Opening Paragraph</label>
-			<textarea name="timber_serv_opening_paragraph"><?php if($data['timber_serv_opening_paragraph']): h($data['timber_serv_opening_paragraph']) ?><?php else: ?>A detailed examination was carried out to determine the presence of any wood boring insects and/or wood rotting fungi, the results of this survey are as follows:
+			<textarea name="data[timber_serv_opening_paragraph]"><?php if($data['timber_serv_opening_paragraph']): h($data['timber_serv_opening_paragraph']) ?><?php else: ?>A detailed examination was carried out to determine the presence of any wood boring insects and/or wood rotting fungi, the results of this survey are as follows:
 			<?php endif; ?>
 			</textarea>
 			<hr />

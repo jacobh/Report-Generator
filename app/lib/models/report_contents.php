@@ -10,5 +10,5 @@ class ReportContents extends ModelBase {
 	protected $on_restore = array("data" => "legit_json_decode");
 	
 	
-	public static $data_crud = array( 2, 4, 5, 7, 9, 10, 11 );
+	public static $data_crud = array( 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 );
 }
