@@ -35,7 +35,7 @@ class Report extends ModelBase {
 		return NULL;
 	}
 	
-	public function previousContentsBefore($id) {
+	public function prevContentsBefore($id) {
 		$carr = explode(",", $this->contents);
 		$ret = 1;
 		foreach($carr as $next) {
