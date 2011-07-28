@@ -39,6 +39,21 @@ function view($name, $vars = array(), $use_layout = true) {
 	exit;
 }
 
+function render($name, $vars = array(), $use_layout = true) {
+	extract($vars);
+	$__level = error_reporting();
+	error_reporting(E_ALL ^ E_NOTICE);
+	ob_start();
+	if($use_layout) {
+		$__page = "views/$name.php";
+		include "views/layout.php";
+	} else {
+		include "views/$name.php";
+	}
+	error_reporting($__level);
+	return ob_get_clean();
+}
+
 function redirect($uri, $params = array()) {
 	if(count($params)) {
 		$uri .= "?";
