@@ -29,7 +29,7 @@
 /*layout*/
 	div#wrap {
 		margin: 0 auto;
-		width:1000px;
+		width:1010px;
 		min-height:100%;
 	}
 	div#header {
@@ -47,6 +47,9 @@
 		height:100%;
 		padding:5px;
 	}
+	div.col{
+		overflow:auto;
+	}
 	div#main_content_lhs {
 		width:210px;
 		float:left;
@@ -57,7 +60,7 @@
 		float:left;
 	}
 	div#main_content_rhs {
-		width:210px;
+		width:220px;
 		float:left;
 		margin:0 0 0 10px;
 	}

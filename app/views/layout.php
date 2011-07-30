@@ -5,13 +5,19 @@
 		<link rel="stylesheet" href="style/style.css" type="text/css" media="all" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 	</head>
+	<script>
+			$(document).ready(function(){
+				ColHeight = $(window).height() - 129;
+				$("div.col").css("height", ColHeight + "px");
+			});
+	</script>
 	<body>
 		<div id="wrap">
 			<div id="header">
 				<h1>Report Generator</h1>
 			</div>
 			<div id="main_content">
-				<div id="main_content_lhs">
+				<div id="main_content_lhs" class="col">
 					<ul id="nav">
 						<a href="new_report.php">
 							<li>	

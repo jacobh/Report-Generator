@@ -1,4 +1,4 @@
-<div id="main_content_mid">
+<div id="main_content_mid" class="col">
 	<ul id="report_list">
 		<?php foreach($reports as $report): ?>
 		<li>
@@ -23,7 +23,7 @@
 	});
 	</script>
 </div>
-<div id="main_content_rhs">
+<div id="main_content_rhs" class="col">
 	<?php foreach($reports as $report): ?>
 		<div style="display:none;" id="overview_<?php h($report->id) ?>">
 			<h2><?php h($report->street_address) ?><br /><br /><?php h($report->city) ?></h2>
