@@ -8,7 +8,7 @@
 	<script>
 			function ColHeightApply() {
 				ColHeight = $(window).height() - $("#header").outerHeight(true) - $("#footer").outerHeight(true) - 15;
-				$("div.col").css("height", ColHeight + "px");
+				$("div.col").css("min-height", ColHeight + "px");
 				$("#main_content_rhs_wide").css("height", ColHeight + "px");
 			};
 			$(document).ready(ColHeightApply);
