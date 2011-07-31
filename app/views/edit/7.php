@@ -21,7 +21,8 @@
 						<textarea name="data[timber_surv_observations][<?php echo $i; ?>][description]" placeholder="insert description here..."><?php h($obs['description']) ?></textarea>
 						<a href="#" class="observation_delete" style="float:right">Delete</a>
 					</div>
-					<hr />	
+					<hr />
+					<?php $i++; ?>
 				<?php endforeach;?>
 			<?php endif; ?>
 

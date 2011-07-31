@@ -1,6 +1,7 @@
 <?php require_once("lib/init.php");
 
 $report = Report::get();
+expects(array("section" => "int?"));
 
 class ReportPDF extends TCPDF {
 	public function _setup() {
@@ -37,7 +38,7 @@ $pdf->_setup();
 $pdf->AddPage();
 $pdf->writeHTMLCell($w=0, $h=0, $x='', $y='', render("pdf/front", array( "report" => $report ), false), $border=0, $ln=1, $fill=0, $reseth=true, $align='', $autopadding=true);
 
-foreach(explode(",", $report->contents) as $cid) {
+foreach(explode(",", $params['section'] ? $params['section'] : $report->contents) as $cid) {
 	$_contents = $report->find_contents($cid);
 	$pdf->AddPage();
 	$data = $_contents->data;
