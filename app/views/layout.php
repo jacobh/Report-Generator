@@ -17,7 +17,7 @@
 	<body>
 		<div id="wrap">
 			<div id="header">
-				<h1>Report Generator</h1>
+				<h1><a href="index.php">Report Generator</a></h1>
 			</div>
 			<div id="main_content">
 				<div id="main_content_lhs" class="col">
