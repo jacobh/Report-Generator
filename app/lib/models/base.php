@@ -163,20 +163,6 @@ class ModelBase {
 			<p>
 				Please ensure the database settings in config.php are correct.
 			</p>
-			<table border="1" cellpadding="4">
-				<tr>
-					<th>DSN</th>
-					<td><?php h($config['db']['dsn']) ?></td>
-				</tr>
-				<tr>
-					<th>Username</th>
-					<td><?php h($config['db']['user']) ?></td>
-				</tr>
-				<tr>
-					<th>Password</th>
-					<td><?php echo $config['db']['pass'] ? preg_replace(".", "*", $config['db']['pass']) : "<i>None</i>" ?></td>
-				</tr>
-			</table>
 			<?php
 			exit;
 		}
