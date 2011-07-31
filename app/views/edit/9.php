@@ -73,9 +73,6 @@
 				</tr>
 			</tbody></table>
 		</div>
-		<div id="report_edit_back_forward">
-			<input type="submit" name="prev" value="&lt; PREV" />
-			<input type="submit" name="next" value="<?php echo $report->nextContentsAfter($params['section']) ? 'NEXT &gt;' : 'FINISH' ?>" />
-		</div>
+		<?php include "edit_nav.php" ?>
 	</form>
 </div>

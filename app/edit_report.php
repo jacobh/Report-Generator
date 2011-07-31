@@ -1,6 +1,6 @@
 <?php require_once('lib/init.php');
 
-expects(array("prev" => "string?", "next" => "string?", "section" => "int"));
+expects(array("prev" => "string?", "next" => "string?", "quit" => "string?", "goto" => "int?", "section" => "int"));
 $report = Report::get();
 $viewdata = array("report" => $report);
 
@@ -30,7 +30,7 @@ if($params["section"] == 1) {
 		$data = ReportContents::create(array( "report_id" => $report->id, "type" => $params['section'], "data" => array() ));
 	}
 	$viewdata['data'] = $data->data;
-	if($params['prev'] || $params['next']) {
+	if($params['prev'] || $params['next'] || $params['quit'] || $params['goto']) {
 		expects(array("data" => "array", "other_data" => "array?"));
 		foreach($params['data'] as $k=>$v) {
 			$data->data[$k] = $v;
@@ -59,6 +59,12 @@ if($params["section"] == 1) {
 			}
 		}
 		
+		if($params['quit']) {
+			redirect("index.php");
+		}
+		if($params['goto']) {
+			redirect("edit_report.php", array("report_id" => $report->id, "section" => $params['goto']));
+		}
 		if($params['next']) {
 			redirect("edit_report.php", array("report_id" => $report->id, "section" => $report->nextContentsAfter($params['section'])));
 		}

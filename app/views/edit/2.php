@@ -17,9 +17,6 @@
 			<label>Findings / Recomendations</label>
 			<textarea name="data[introduction_findings_recomendations]"><?php h($data['introduction_findings_recomendations']) ?></textarea>
 		</div>
-		<div id="report_edit_back_forward">
-			<input type="submit" name="prev" value="&lt; PREV" />
-			<input type="submit" name="next" value="<?php echo $report->nextContentsAfter($params['section']) ? 'NEXT &gt;' : 'FINISH' ?>" />
-		</div>
+		<?php include "edit_nav.php" ?>
 	</form>
 </div>

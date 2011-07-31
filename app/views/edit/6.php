@@ -21,9 +21,6 @@
 			<label>Date of Survey</label>
 				<input name="date" type="text" value="<?php echo date("Y-m-d H:i:s", $report->created_at); ?>" />
 		</div>
-		<div id="report_edit_back_forward">
-			<input type="submit" name="prev" value="&lt; PREV" />
-			<input type="submit" name="next" value="<?php echo $report->nextContentsAfter($params['section']) ? 'NEXT &gt;' : 'FINISH' ?>" />
-		</div>
+		<?php include "edit_nav.php" ?>
 	</form>
 </div>
