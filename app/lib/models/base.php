@@ -155,7 +155,31 @@ class ModelBase {
 	
 	public static function connect() {
 		global $config;
-		self::$pdo = new PDO($config["db"]["dsn"], $config["db"]["user"], $config["db"]["pass"]);
+		try {
+			self::$pdo = new PDO($config["db"]["dsn"], $config["db"]["user"], $config["db"]["pass"]);
+		} catch(PDOException $e) {
+			?>
+			<h1>Database connection failure</h1>
+			<p>
+				Please ensure the database settings in config.php are correct.
+			</p>
+			<table border="1" cellpadding="4">
+				<tr>
+					<th>DSN</th>
+					<td><?php h($config['db']['dsn']) ?></td>
+				</tr>
+				<tr>
+					<th>Username</th>
+					<td><?php h($config['db']['user']) ?></td>
+				</tr>
+				<tr>
+					<th>Password</th>
+					<td><?php echo $config['db']['pass'] ? preg_replace(".", "*", $config['db']['pass']) : "<i>None</i>" ?></td>
+				</tr>
+			</table>
+			<?php
+			exit;
+		}
 	}
 }
 ModelBase::connect();
