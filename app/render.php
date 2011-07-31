@@ -41,7 +41,7 @@ foreach(explode(",", $report->contents) as $cid) {
 	$_contents = $report->find_contents($cid);
 	$pdf->AddPage();
 	$data = $_contents->data;
-	include("views/pdf/$cid.php");
+	require "views/pdf/$cid.php";
 }
 
 // ---------------------------------------------------------
