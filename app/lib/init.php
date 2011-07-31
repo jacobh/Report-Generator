@@ -2,6 +2,10 @@
 
 session_start();
 
+if(!file_exists("../config.php")) {
+	header("Location: install.php");
+	exit;
+}
 require_once 'config.php';
 date_default_timezone_set($config['timezone']);
 
