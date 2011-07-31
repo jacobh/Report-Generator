@@ -28,6 +28,7 @@ function expects($expects, $redir_to = "index.php") {
 }
 
 function view($name, $vars = array(), $use_layout = true) {
+	global $params;
 	extract($vars);
 	error_reporting(E_ALL ^ E_NOTICE);
 	if($use_layout) {
@@ -40,6 +41,7 @@ function view($name, $vars = array(), $use_layout = true) {
 }
 
 function render($name, $vars = array(), $use_layout = true) {
+	global $params;
 	extract($vars);
 	$__level = error_reporting();
 	error_reporting(E_ALL ^ E_NOTICE);
