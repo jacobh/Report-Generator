@@ -35,16 +35,6 @@
 						<td width="550px"><p>Description</p></td>
 						<td></td>
 					</tr>
-					<tr><!--these two items are just placeholder-->
-						<td><p>001</p></td>
-						<td>
-							<h4>Install additional air vents</h4>
-							<p>By increasing the ventilation, this will allow for a far more efficient way in which
-							the air is circulated in this area which will decrease the amount of moisture
-							which can be transferred to the sub floor timbers.</p>
-						</td>
-						<td><a class="summ_rec_button" href="#">Delete</a></td><!--this would delete the item from the current items list-->
-					</tr>
 					<?php $i = 0; ?>
 					<?php if(is_array($data['current_items'])): ?>
 						<?php foreach($data['current_items'] as $itm): ?>
