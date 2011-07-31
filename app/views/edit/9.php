@@ -53,8 +53,8 @@
 					<td></td>
 				</tr>
 				<?php $total_price = 0; ?>
-				<?php if(is_array($data['current_items'])): ?>
-					<?php foreach($data['current_items'] as $itm): ?>
+				<?php if(is_array($recc['current_items'])): ?>
+					<?php foreach($recc['current_items'] as $itm): ?>
 						<?php $total_price += $itm['price']; ?>
 						<tr>
 							<td><p><?php h($itm['id']); ?></p></td>
