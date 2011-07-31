@@ -28,7 +28,7 @@
 		<div style="display:none;" id="overview_<?php h($report->id) ?>">
 			<h2><?php h($report->street_address) ?><br /><br /><?php h($report->city) ?></h2>
 			<hr />
-			<img src="misc/report-cover.jpg" />
+			<img src="thumbnail.php?report_id=<?php h($report->id) ?>" />
 			<hr />
 			<p class="report_metainfo">Created On: <?php echo date("jS F Y", $report->created_at) ?> at <?php echo date("g:ia", $report->created_at) ?></p>
 			<p class="report_metainfo">Last Edited: <?php echo date("jS F Y", $report->updated_at) ?> at <?php echo date("g:ia", $report->updated_at) ?></p>
