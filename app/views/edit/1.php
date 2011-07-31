@@ -74,6 +74,7 @@
 		</script>
 		<div id="report_edit_back_forward">
 			<input type="submit" name="next" value="NEXT &gt;" />
+			<input type="submit" name="quit" value="SAVE AND QUIT" />
 		</div>
 	</form>
 </div>
