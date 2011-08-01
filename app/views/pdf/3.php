@@ -13,7 +13,9 @@ $pdf->SetTextColor(255, 255, 255);
 $pdf->SetFillColor(0, 0, 0);
 $pdf->Cell(0, 0, 'Instructing Client(s)                              ', 0, 1, 'R', 1);
 $pdf->Ln();
-$pdf->Image("upload/$data[photo]", 15, 45, ($pdf->getPageWidth() - PDF_MARGIN_LEFT - PDF_MARGIN_RIGHT) / 2, '', '', '', '', 'L');
+if(is_numeric($data['photo'])) {
+	$pdf->Image("upload/$data[photo]", 15, 45, ($pdf->getPageWidth() - PDF_MARGIN_LEFT - PDF_MARGIN_RIGHT) / 2, '', '', '', '', 'L');
+}
 $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFontSize(11);
 $pdf->writeHTMLCell(0, 0, ($pdf->getPageWidth() - PDF_MARGIN_LEFT - PDF_MARGIN_RIGHT) / 2 + 20, 45, "

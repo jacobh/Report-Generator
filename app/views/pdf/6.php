@@ -8,4 +8,6 @@ $pdf->writeHTMLCell(0, 0, '', '', '<table width="100%">
 </table>
 <hr />', 0, 1, 0, true, '', true);
 $pdf->Ln(4);
-$pdf->writeHTMLCell(0, 0, '', '', '<img src="upload/' . $data['sketch'] . '" />', 0, 1, 0, true, '', true);
+if(is_numeric($data['sketch'])) {
+	$pdf->writeHTMLCell(0, 0, '', '', '<img src="upload/' . $data['sketch'] . '" />', 0, 1, 0, true, '', true);
+}
