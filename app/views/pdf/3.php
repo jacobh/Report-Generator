@@ -85,6 +85,6 @@ foreach(array(
 	$pdf->SetFontSize(11);
 	$pdf->SetTextColor(0, 0, 0);
 	$pdf->SetFillColor(255, 255, 255);
-	$pdf->Cell(0, 0, $data[$sect], 0, 1, 'L', 1);
+	$pdf->Write(0, $data[$sect]);
 	$pdf->Ln(4);
 }
