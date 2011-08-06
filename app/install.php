@@ -24,11 +24,7 @@
 					file_put_contents("config.php", '<?php $config = ' . var_export($_POST, true) . ';');
 					
 					$sql = <<<SQL
-						# Dump of table file
-						# ------------------------------------------------------------
-
 						DROP TABLE IF EXISTS `file`;
-
 						CREATE TABLE `file` (
 						  `id` int(11) NOT NULL AUTO_INCREMENT,
 						  `filename` varchar(255) NOT NULL,
@@ -37,13 +33,7 @@
 						  PRIMARY KEY (`id`)
 						) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
-
-
-						# Dump of table report
-						# ------------------------------------------------------------
-
 						DROP TABLE IF EXISTS `report`;
-
 						CREATE TABLE `report` (
 						  `id` int(11) NOT NULL AUTO_INCREMENT,
 						  `created_at` int(11) DEFAULT NULL,
@@ -58,13 +48,7 @@
 						  KEY `updated_at` (`updated_at`)
 						) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
-
-
-						# Dump of table report_contents
-						# ------------------------------------------------------------
-
 						DROP TABLE IF EXISTS `report_contents`;
-
 						CREATE TABLE `report_contents` (
 						  `id` int(11) NOT NULL AUTO_INCREMENT,
 						  `report_id` int(11) DEFAULT NULL,
@@ -72,6 +56,15 @@
 						  `data` text,
 						  PRIMARY KEY (`id`)
 						) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+						
+						DROP TABLE IF EXISTS `recommended_item`
+						CREATE TABLE `recommended_item` (
+						  `id` int(11) NOT NULL AUTO_INCREMENT,
+						  `name` varchar(255) NOT NULL,
+						  `description` text NOT NULL,
+						  `price` int(11) NOT NULL,
+						  PRIMARY KEY (`id`)
+						) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 SQL;
 					$pdo->query($sql);
 					
