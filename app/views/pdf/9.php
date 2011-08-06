@@ -92,12 +92,14 @@ $other_8_obj = $report->find_contents(8);
 $other_8 = $other_8_obj ? $other_8_obj->data : array();
 
 $total = 0;
-foreach($other_8['current_items'] as $item) {
-	$pdf->Cell(40, 7, $item['id'], 0, 0, 'L', 1);
-	$pdf->Cell(115, 7, $item['name'], 0, 0, 'L', 1);
-	$pdf->Cell(25, 7, "£" . (int)$item['price'] . ".00", 0, 0, 'R', 1);
-	$total += (int)$item['price'];
-	$pdf->Ln();
+if(is_array($other_8['current_items'])) {
+	foreach($other_8['current_items'] as $item) {
+		$pdf->Cell(40, 7, $item['id'], 0, 0, 'L', 1);
+		$pdf->Cell(115, 7, $item['name'], 0, 0, 'L', 1);
+		$pdf->Cell(25, 7, "£" . (int)$item['price'] . ".00", 0, 0, 'R', 1);
+		$total += (int)$item['price'];
+		$pdf->Ln();
+	}
 }
 
 $pdf->Ln(1);
