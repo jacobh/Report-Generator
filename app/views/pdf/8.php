@@ -39,14 +39,23 @@ $pdf->Ln();
 $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFillColor(255, 255, 255);
 
-foreach($data['current_items'] as $item) {
-	$pdf->SetFont('', 'B');
-	$pdf->Cell(40, 7, $item['id'], 0, 0, 'L', 1);
-	$pdf->Cell(140, 7, $item['name'], 0, 0, 'L', 1);
-	$pdf->Ln();
-	$pdf->SetFont('', '');
-	$pdf->Cell(40, 7, "", 0, 0, 'L', 1);
-	$pdf->MultiCell(140, 7, $item['description'], 0, 'L');
+if(is_array($data['current_items'])) {
+	foreach($data['current_items'] as $item_id) {
+		if(!is_numeric($item_id)) {
+			continue;
+		}
+		$item = RecommendedItem::find($item_id);
+		if(!$item) {
+			continue;
+		}
+		$pdf->SetFont('', 'B');
+		$pdf->Cell(40, 7, sprintf("%03d", $item->id), 0, 0, 'L', 1);
+		$pdf->Cell(140, 7, $item->name, 0, 0, 'L', 1);
+		$pdf->Ln();
+		$pdf->SetFont('', '');
+		$pdf->Cell(40, 7, "", 0, 0, 'L', 1);
+		$pdf->MultiCell(140, 7, $item->description, 0, 'L');
+	}
 }
 
 $pdf->Ln();

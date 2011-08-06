@@ -86,5 +86,5 @@ foreach(array(
 	$pdf->SetTextColor(0, 0, 0);
 	$pdf->SetFillColor(255, 255, 255);
 	$pdf->Write(0, $data[$sect]);
-	$pdf->Ln(4);
+	$pdf->Ln(10);
 }

@@ -54,15 +54,18 @@
 				</tr>
 				<?php $total_price = 0; ?>
 				<?php if(is_array($recc['current_items'])): ?>
-					<?php foreach($recc['current_items'] as $itm): ?>
-						<?php $total_price += $itm['price']; ?>
+					<?php foreach($recc['current_items'] as $itm_id): ?>
+						<?php if(!is_numeric($itm_id)) continue; ?>
+						<?php $itm = RecommendedItem::find($itm_id); ?>
+						<?php if(!$itm) continue; ?>
+						<?php $total_price += $itm->price; ?>
 						<tr>
-							<td><p><?php h($itm['id']); ?></p></td>
+							<td><p><?php printf("%03d", $itm->id); ?></p></td>
 							<td>
-								<h4><?php h($itm['name']); ?></h4>
-								<p><?php h($itm['descr']); ?></p>
+								<h4><?php h($itm->name); ?></h4>
+								<p><?php h($itm->description); ?></p>
 							</td>
-							<td><p>&pound;<?php h($itm['price']); ?></p></td>
+							<td><p>&pound;<?php h($itm->price); ?></p></td>
 						</tr>
 					<?php endforeach; ?>
 				<?php endif; ?>	

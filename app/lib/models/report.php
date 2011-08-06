@@ -10,7 +10,7 @@ class Report extends ModelBase {
 		7 => array( "title" => "Timber Survey", "module" => "timber" ),
 		8 => array( "title" => "Summary & Recommendations", "module" => "summary" ),
 		9 => array( "title" => "Your Quote", "module" => "quote" ),
-		10 => array( "title" => "Coptionent Health & Safety Data Sheet", "module" => "datasheet" ),
+		10 => array( "title" => "Client Health & Safety Data Sheet", "module" => "datasheet" ),
 		11 => array( "title" => "Terms & Conditions", "module" => "terms" ),
 	);
 	

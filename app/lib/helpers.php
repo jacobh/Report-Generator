@@ -1,5 +1,11 @@
 <?php
 
+function ensure($method) {
+	if(strtoupper($_SERVER['REQUEST_METHOD']) != strtoupper($method)) {
+		exit;
+	}
+}
+
 function expects($expects, $redir_to = "index.php") {
 	global $params;
 	if(!is_array($params)) {
@@ -25,6 +31,12 @@ function expects($expects, $redir_to = "index.php") {
 			settype($params[$k], $v);
 		}
 	}
+}
+
+function json($data) {
+	header("Content-Type: application/json");
+	echo json_encode($data);
+	exit;
 }
 
 function view($name, $vars = array(), $use_layout = true) {

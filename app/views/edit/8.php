@@ -14,8 +14,11 @@
 			<h4>Recommendations</h4>
 			<label>Add Existing Item</label>
 				<select name="summ_rec_add_existing_item">
-					<option price="199" descr="By increasing the ventilation, this will allow for a far more efficient way in which the air is circulated in this area which will decrease the amount of moisture which can be transferred to the sub floor timbers.">001 - install Additional Air Vents - $199</option>
-					<option price="1337" descr="The survey highlighted that the existing damp proof course had failed in the areas highlighted in the enclosed sketch plan, therefore we would propose installing a new DPC in this area to prevent future outbreaks of reising dampness.">002 - Install Retrofit DPC - $1337</option>
+					<?php foreach(RecommendedItem::all("id ASC") as $item): ?>
+						<option price="<?php h($item->price) ?>" descr="<?php h($item->description) ?>">
+							<?php printf("%03d", $item->id) ?> - <?php h($item->name) ?> - &pound;<?php h($item->price) ?>
+						</option>
+					<?php endforeach; ?>
 				</select>
 				<a class="summ_rec_button _preset_add" href="#">Add</a>
 			<div class="clearfix"></div>
@@ -37,16 +40,16 @@
 					</tr>
 					<?php $i = 0; ?>
 					<?php if(is_array($data['current_items'])): ?>
-						<?php foreach($data['current_items'] as $itm): ?>
+						<?php foreach($data['current_items'] as $itm_id): ?>
+							<?php if(!is_numeric($itm_id)) { continue; } ?>
+							<?php $itm = RecommendedItem::find($itm_id); ?>
+							<?php if(!$itm) { continue; } ?>
 							<tr>
-								<input type="hidden" name="data[current_items][<?php h($i) ?>][id]" value="<?php h($itm['id']) ?>" />
-								<input type="hidden" name="data[current_items][<?php h($i) ?>][name]" value="<?php h($itm['name']) ?>" />
-								<input type="hidden" name="data[current_items][<?php h($i) ?>][description]" value="<?php h($itm['description']) ?>" />
-								<input type="hidden" name="data[current_items][<?php h($i) ?>][price]" value="<?php h($itm['price']) ?>" />
-								<td><p><?php h($itm['id']) ?></p></td>
+								<input type="hidden" name="data[current_items][]" value="<?php h($itm->id) ?>" />
+								<td><p><?php printf("%03d", $itm->id) ?></p></td>
 								<td>
-									<h4><?php h($itm['name']) ?></h4>
-									<p><?php h($itm['description']) ?></p>
+									<h4><?php h($itm->name) ?></h4>
+									<p><?php h($itm->description) ?></p>
 								</td>
 								<td><a href="#" class="summ_rec_button _del">Delete</a></td>
 							</tr>
@@ -56,25 +59,27 @@
 					<script>
 						$(document).ready(function() {
 							$("._del").parents("_del").click(function() { $(this).remove(); return false; });
-							var i = <?php echo $i; ?>;
 							function addSection(id, name, descr, price) {
-								var el = $('<tr><input type="hidden" class="_id" name="data[current_items][' + i + '][id]" /><input class="_name" type="hidden" name="data[current_items][' + i + '][name]" /><input type="hidden" class="_descr" name="data[current_items][' + i + '][description]" /><input type="hidden" class="_price" name="data[current_items][' + i + '][price]" /<>td><p class="id"> </p></td><td><h4> </h4><p class="description"> </p></td><td><a href="#" class="summ_rec_button _del">Delete</a></td></tr>');
+								id = parseInt(id);
+								var el = $('<tr><input type="hidden" class="_id" name="data[current_items][]" /><td><p class="id"> </p></td><td><h4> </h4><p class="description"> </p></td><td><a href="#" class="summ_rec_button _del">Delete</a></td></tr>');
 								el.find(".id").text(id);
 								el.find(".description").text(descr);
 								el.find("h4").text(name);
 								el.find("._id").val(id);
-								el.find("._descr").val(descr);
-								el.find("._price").val(price);
-								el.find("._name").val(name);
 								el.find("._del").click(function() { el.remove(); return false; });
 								el.insertAfter($("#summ_rec_current_items_table tr").last());
-								i++;
 							}
 							$("._custom_add").click(function() {
 								var name = $("[name=summ_rec_add_new_item_name]");
 								var description = $("[name=summ_rec_add_new_item_description]");
 								var price = $("[name=summ_rec_add_new_item_price]");
-								addSection("N/A", name.val(), description.val(), price.val());
+								$.post("ajax_new_recommended_item.php", {
+									name: name.val(),
+									description: description.val(),
+									price: price.val()
+								}, function(obj) {
+									addSection(obj.id, obj.name, obj.description, obj.price);
+								}, 'json');
 								name.val("");
 								description.val("");
 								price.val("");
