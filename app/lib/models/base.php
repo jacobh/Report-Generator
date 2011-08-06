@@ -3,6 +3,7 @@
 class ModelBase {
 	
 	private static $pdo;
+	private $columns;
 	
 	private function __construct($obj = array(), $marshal = true) {
 		$this->columns = array();
