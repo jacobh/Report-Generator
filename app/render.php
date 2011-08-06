@@ -38,12 +38,19 @@ $pdf->_setup();
 $pdf->AddPage();
 $pdf->writeHTMLCell($w=0, $h=0, $x='', $y='', render("pdf/front", array( "report" => $report ), false), $border=0, $ln=1, $fill=0, $reseth=true, $align='', $autopadding=true);
 
+$sectionPages = array();
+
 foreach(explode(",", $params['section'] ? $params['section'] : $report->contents) as $cid) {
 	$_contents = $report->find_contents($cid);
 	$pdf->AddPage();
 	$data = $_contents->data;
+	$sectionPages[] = array("page" => $pdf->getPage() + 1 /* to account for table of contents page */, "subject" => Report::$contents_ids[$cid]["title"]);
 	require "views/pdf/$cid.php";
 }
+
+$pdf->AddPage();
+require "views/pdf/contents.php";
+$pdf->movePage($pdf->getPage(), 2);
 
 // ---------------------------------------------------------
 
