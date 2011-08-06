@@ -93,11 +93,18 @@ $other_8 = $other_8_obj ? $other_8_obj->data : array();
 
 $total = 0;
 if(is_array($other_8['current_items'])) {
-	foreach($other_8['current_items'] as $item) {
-		$pdf->Cell(40, 7, $item['id'], 0, 0, 'L', 1);
-		$pdf->Cell(115, 7, $item['name'], 0, 0, 'L', 1);
-		$pdf->Cell(25, 7, "£" . (int)$item['price'] . ".00", 0, 0, 'R', 1);
-		$total += (int)$item['price'];
+	foreach($other_8['current_items'] as $item_id) {
+		if(!is_numeric($item_id)) {
+			continue;
+		}
+		$item = RecommendedItem::find($item_id);
+		if(!$item) {
+			continue;
+		}
+		$pdf->Cell(40, 7, sprintf("%03d", $item->id), 0, 0, 'L', 1);
+		$pdf->Cell(115, 7, $item->name, 0, 0, 'L', 1);
+		$pdf->Cell(25, 7, "£" . $item->price . ".00", 0, 0, 'R', 1);
+		$total += $item->price;
 		$pdf->Ln();
 	}
 }
