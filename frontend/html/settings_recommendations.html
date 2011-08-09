@@ -1,0 +1,97 @@
+<!--report basics-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Report Generator | Settings</title>
+		<link rel="stylesheet" href="style/style.css" type="text/css" media="all" />
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="header">
+				<h1>Report Generator</h1>
+			</div>
+			<div id="main_content">
+				<div id="main_content_lhs">
+					<ul id="nav">
+						<a href="#">
+							<li>	
+								<p>New Report</p>
+								<img src="style/images/newreport.png"></img>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<p>Reports</p>
+								<img src="style/images/reports.png"></img>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<p>Clients</p>
+								<img src="style/images/clients.png"></img>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<p>Email</p>
+								<img src="style/images/email.png"></img>
+							</li>
+						</a>
+						<a href="#">
+							<li>
+								<p>Settings</p>
+								<img src="style/images/settings.png"></img>
+							</li>
+						</a>
+					</ul>
+				</div>
+				<div id="main_content_rhs_wide">
+					<h2>Settings</h2>
+					<h3>Recommendations</h3>
+					<hr />
+					<div class="form_fields">
+						<h3>New</h3>
+						<label for="rec_name">Name</label>
+							<input id="rec_name" type="text" />
+						<label for="rec_price">Price</label>
+							<input id="rec_price" type="text" />
+						<label for="rec_desc">Description</label>
+							<textarea id="rec_desc" placeholder="Lorem ipsum dolor sit amet&hellip;"></textarea>
+						<a class="summ_rec_button cancel" href="#">Clear</a>
+						<a class="summ_rec_button" href="#">Add</a>
+						<hr />
+						<h3>Current Items</h3>
+						<table id="settings_rec_table">
+							<tr>
+								<td class="id">id</td>
+								<td class="name">Name</td>
+								<td class="desc">Description</td>
+								<td class="price">Price</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>Telescreen</td>
+								<td>To keep up with all of the party's latest news a telescreen is an important addition to any household.</td>
+								<td>$400</td>
+								<td><a href="#">Edit</a></td>
+								<td><a href="#">Delete</a></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Heater</td>
+								<td>To survive the long cold winters of airstrip one, a heater will be needed.</td>
+								<td>$750</td>
+								<td><a href="#">Edit</a></td>
+								<td><a href="#">Delete</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<p>Designed &amp; Developed by <a href="http://jacobhaslehurst.com">Jacob Haslehurst</a> &amp; <a href="http://charliesomerville.com">Charlie Somerville</a>. &copy; 2011</p>
+		</div>
+	</body>
+</html>
