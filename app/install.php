@@ -57,7 +57,7 @@
 						  PRIMARY KEY (`id`)
 						) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 						
-						DROP TABLE IF EXISTS `recommended_item`
+						DROP TABLE IF EXISTS `recommended_item`;
 						CREATE TABLE `recommended_item` (
 						  `id` int(11) NOT NULL AUTO_INCREMENT,
 						  `name` varchar(255) NOT NULL,
@@ -65,6 +65,15 @@
 						  `price` int(11) NOT NULL,
 						  PRIMARY KEY (`id`)
 						) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+						
+						DROP TABLE IF EXISTS `default`;
+						CREATE TABLE `default` (
+						  `id` int(11) NOT NULL AUTO_INCREMENT,
+						  `section` int(11) NOT NULL,
+						  `data` text NOT NULL,
+						  PRIMARY KEY (`id`),
+						  UNIQUE KEY `section` (`section`)
+						) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SQL;
 					$pdo->query($sql);
 					
