@@ -1,4 +1,6 @@
-<?php require_once('lib/init.php');
+<?php
+	require_once('lib/init.php');
 
-$reports = Report::all("updated_at DESC");
-view("index", array("reports" => $reports));
+	$reports = Report::all("updated_at DESC");
+	view("index", array("reports" => $reports));
+?>

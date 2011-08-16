@@ -127,7 +127,7 @@ class ModelBase {
 	}
 	
 	private static function table_name() {
-		return strtolower(preg_replace("/([a-z])([A-Z])/", '${1}_${2}', get_called_class()));
+		return strtolower(preg_replace("/^_?(.*)$/", '${1}', preg_replace("/([a-z])([A-Z])/", '${1}_${2}', get_called_class())));
 	}
 	
 	public static function __callStatic($name, $arguments) {
