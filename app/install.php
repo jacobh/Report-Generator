@@ -69,8 +69,8 @@
 						DROP TABLE IF EXISTS `default`;
 						CREATE TABLE `default` (
 						  `id` int(11) NOT NULL AUTO_INCREMENT,
-						  `section` int(11) NOT NULL,
-						  `data` text NOT NULL,
+						  `section` int(11) DEFAULT NULL,
+						  `data` text,
 						  PRIMARY KEY (`id`),
 						  UNIQUE KEY `section` (`section`)
 						) ENGINE=InnoDB DEFAULT CHARSET=latin1;
