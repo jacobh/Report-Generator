@@ -1,12 +1,4 @@
-<div id="main_content_rhs_wide">
-	<h2>Report Edit</h2>
-	<h3>Terms &amp; Conditions</h3>
-	<hr />
-	<form method="post">
 		<div class="form_fields">
-			<input type="hidden" name="report_id" value="<?php h($report->id) ?>">
-			<input type="hidden" name="section" value="11">
-		
 			<textarea name="data[terms]"><?php if($data['terms']): h($data['terms']) ?><?php else: ?>1. This estimate is based upon the current cost of labour and materials and is subject to variation should these items be increased.
 2. This estimate is based upon the assumption that our operatives will be able to complete the work contracted for during a continuous uninterrupted period. Should the client interrupt work, delay completion, or require separate stages to undertake the work, then any additional cost or loss to us would be chargeable to the client.
 3. This estimate is open for acceptance for a period of three months from its issue after which time we reserve the right to adjust or withdraw.
@@ -26,7 +18,3 @@
 				<?php endif; ?>
 			</textarea>
 		</div>
-	
-		<?php include "edit_nav.php" ?>
-	</form>
-</div>

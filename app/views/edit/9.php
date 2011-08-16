@@ -1,30 +1,27 @@
-<?php	
-	$prop_obj = $report->find_contents(3);
-	$prop = $prop_obj ? $prop_obj->data : array();
+<?php if($edit_ctx): ?>
+	<?php	
+		$prop_obj = $report->find_contents(3);
+		$prop = $prop_obj ? $prop_obj->data : array();
 	
-	$recc_obj = $report->find_contents(8);
-	$recc = $recc_obj ? $recc_obj->data : array();
-?>
-<div id="main_content_rhs_wide">
-	<h2>Report Edit</h2>
-	<h3>Your Quote</h3>
-	<hr />
-	<form method="post">
-		<div class="form_fields"><!--all values on this page are placeholder-->
-			<input type="hidden" name="report_id" value="<?php h($report->id) ?>">
-			<input type="hidden" name="section" value="9">
-			<h3>Your Details</h3><!--this should be doable from report edit 1 and report edit 3-->
-				<label>Name</label>
-					<input name="other_data[1][client_name]" type="text" value="<?php h($report->client_name) ?>" />
-				<label>Address</label>
-					<input name="other_data[1][street_address]" type="text" value="<?php h($report->street_address) ?>"/>
-					<input name="other_data[1][city]" type="text" value="<?php h($report->city) ?>"/>
-					<input name="other_data[1][postcode]" type="text" value="<?php h($report->postcode) ?>"/>
-				<label>Client Reference</label>
-					<input name="other_data[3][client_ref]" type="text" value="<?php h(isset($prop['client_ref']) ? $prop['client_ref'] : 'Amb/review'); ?>" />
-				<label>Quote Reference</label>
-					<input name="data[quote_ref]" type="text" value="<?php h(isset($data['quote_ref']) ? $data['quote_ref'] : 'Amb/review'); ?>" />
-			<hr />
+		$recc_obj = $report->find_contents(8);
+		$recc = $recc_obj ? $recc_obj->data : array();
+	?>
+<?php endif; ?>
+		<div class="form_fields">
+			<?php if($edit_ctx): ?>
+				<h3>Your Details</h3><!--this should be doable from report edit 1 and report edit 3-->
+					<label>Name</label>
+						<input name="other_data[1][client_name]" type="text" value="<?php h($report->client_name) ?>" />
+					<label>Address</label>
+						<input name="other_data[1][street_address]" type="text" value="<?php h($report->street_address) ?>"/>
+						<input name="other_data[1][city]" type="text" value="<?php h($report->city) ?>"/>
+						<input name="other_data[1][postcode]" type="text" value="<?php h($report->postcode) ?>"/>
+					<label>Client Reference</label>
+						<input name="other_data[3][client_ref]" type="text" value="<?php h(isset($prop['client_ref']) ? $prop['client_ref'] : 'Amb/review'); ?>" />
+					<label>Quote Reference</label>
+						<input name="data[quote_ref]" type="text" value="<?php h(isset($data['quote_ref']) ? $data['quote_ref'] : 'Amb/review'); ?>" />
+				<hr />
+			<?php endif; ?>
 			<h3>Our Details</h3><!--probably base this on some options on the settings page-->
 				<label>Surveyor</label>
 					<input name="other_data[3][our_surveyer]" type="text" value="<?php h(isset($prop['surveyer']) ? $prop['surveyer'] : 'Bryan Campbell C.S.R.T.'); ?>" />
@@ -45,6 +42,7 @@
 			<textarea name="data[message]"><?php if(isset($data['message'])) { h($data['message']); } else {
 	?>Condensation is usually caused by a combination of circumstances, and so a single factor remedy is unlikely to resolve the problem completely, the methods described will all assist in reducing the conditions where sub floor condensation can occur, however I would suggest a further discussion in which we can discuss the options or alternatives in further detail.<?php } ?></textarea>
 			<hr />
+		<?php if($edit_ctx): ?>
 			<h3>Recommended Items</h3>
 			<table><tbody  id="summ_rec_current_items_table"><!--this table is based on what was selected on the previous page-->
 				<tr>
@@ -75,7 +73,5 @@
 					<td>&pound;<?php h($total_price); ?></td>
 				</tr>
 			</tbody></table>
+		<?php endif; ?>
 		</div>
-		<?php include "edit_nav.php" ?>
-	</form>
-</div>

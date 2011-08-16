@@ -74,4 +74,6 @@ if($params["section"] == 1) {
 	}
 }
 
-view("edit/$params[section]", $viewdata);
+$viewdata["section"] = $params["section"];
+view("edit/dispatch", $viewdata);
+//view("edit/$params[section]", $viewdata);

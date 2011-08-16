@@ -1,11 +1,5 @@
-<div id="main_content_rhs_wide">
-	<h2>Report Edit</h2>
-	<h3>Summary &amp; Recommendations</h3>
-	<hr />
-	<form method="post">
+	<?php if($edit_ctx): ?>
 		<div class="form_fields">
-			<input type="hidden" name="report_id" value="<?php h($report->id) ?>">
-			<input type="hidden" name="section" value="8">
 			<label>Summary</label>
 				<textarea name="data[summ_rec_summary]"><?php if($data['summ_rec_summary']): h($data['summ_rec_summary']) ?><?php else: ?>Overall the property appears to be in reasonable condition and there is no evidence to suggest that there is any areas which would be of major concern, we would suggest installing additional air vents to the areas indicated in the enclosed sketch plan to increase the ventilation to the sub floor timbers and have submitted a quotation for your information, however as access was limited in several areas we strongly suggest a further visit when full access is available.
 				<?php endif; ?>
@@ -98,7 +92,7 @@
 					</script>
 				</tbody>
 			</table>
-		</div>
-		<?php include "edit_nav.php" ?>
-	</form>
-</div>
+		</div>	
+	<?php else: ?>
+		<h2>todo</h2>
+	<?php endif;?>

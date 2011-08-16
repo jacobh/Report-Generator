@@ -1,10 +1,3 @@
-<div id="main_content_rhs_wide">
-	<h2>Report Edit</h2>
-	<h3>Basics</h3>
-	<hr />
-	<form method="post">
-		<input type="hidden" name="report_id" value="<?php h($report->id) ?>">
-		<input type="hidden" name="section" value="1">
 		<div class="form_fields">
 			<label>Address</label>
 				<input name="basics[street_address]" type="text" placeholder="Street Address Line 1" value="<?php h($report->street_address); ?>" />
@@ -72,9 +65,3 @@
 			});
 		});
 		</script>
-		<div id="report_edit_back_forward">
-			<input type="submit" name="next" value="NEXT &gt;" />
-			<input type="submit" name="quit" value="SAVE AND QUIT" />
-		</div>
-	</form>
-</div>

@@ -1,12 +1,4 @@
-<div id="main_content_rhs_wide">
-	<h2>Report Edit</h2>
-	<h3>Client Health &amp; Safety Data Sheet</h3>
-	<hr />
-	<form method="post">
 		<div class="form_fields">
-			<input type="hidden" name="report_id" value="<?php h($report->id) ?>">
-			<input type="hidden" name="section" value="10">
-		
 			<label>Safety Precautions</label>
 			<textarea name="data[safety_precautions]"><?php if($data['safety_precautions']): h($data['safety_precautions']) ?><?php else: ?>All damp proofing and timber treatment materials present some form of hazard but we will always strive to use the least hazardous materials available for the benefit of our clients and staff. Our operatives have been trained in the use of the materials that they work with and will take the necessary precautions. The hazard posed by our activities is insignificant provided the following safety precautions are followed by all who enter a property or area where treatment has taken place.
 				<?php endif; ?>
@@ -30,7 +22,3 @@
 				<?php endif; ?>
 			</textarea>
 		</div>
-	
-		<?php include "edit_nav.php" ?>
-	</form>
-</div>

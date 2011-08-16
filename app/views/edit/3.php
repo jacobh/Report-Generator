@@ -1,12 +1,6 @@
-<div id="main_content_rhs_wide">
-	<h2>Report Edit</h2>
-	<h3>Property Information &amp; Instructions</h3>
-	<hr />
-	<form method="post" enctype="multipart/form-data">
-		<input type="hidden" name="report_id" value="<?php h($report->id) ?>">
-		<input type="hidden" name="section" value="3">
-		<div class="form_fields">
-			<h4>Instructing Client(s)</h4>
+	<div class="form_fields">
+		<h4>Instructing Client(s)</h4>
+		<?php if($edit_ctx): ?>
 			<label>Photo</label>
 				<?php if(isset($data['photo'])): ?>
 					<img src="file.php?file_id=<?php h($data['photo']) ?>" width="200" height="200" /><br />
@@ -30,20 +24,20 @@
 				<input name="data[wall_thickness]" type="text" value="<?php h($data['wall_thickness']) ?>" />
 			<label>Type of Survey</label>
 				<input name="data[survey_type]" type="text" value="<?php h($data['survey_type']) ?>" />
+		<?php endif; ?>
 			<label>Surveyor</label>
 				<input name="data[surveyer]" type="text" value="<?php h(isset($data['surveyer']) ? $data['surveyer'] : 'Bryan Campbell C.S.R.T.') ?>" />
-			<hr />
+			<hr />	
+		<?php if($edit_ctx): ?>
 			<label>Property Description</label>
 				<textarea name="data[prop_descr]"><?php h($data['prop_descr']) ?></textarea>
 			<label>Clients Instructions</label>
 				<textarea name="data[clients_instructions]"><?php h($data['clients_instructions']) ?></textarea>
 			<label>Point of Reference</label>
 				<textarea name="data[point_of_reference]"><?php h($data['point_of_reference']) ?></textarea>
+		<?php endif; ?>
 			<label>Nomenclature</label>
 				<textarea name="data[nomenclature]"><?php h($data['nomenclature']) ?></textarea>
 			<label>Limitations/Restrictions</label>
 				<textarea name="data[limitations]"><?php h($data['limitations']) ?></textarea>
-		</div>
-		<?php include "edit_nav.php" ?>
-	</form>
-</div>
+	</div>

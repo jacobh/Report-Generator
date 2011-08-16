@@ -1,13 +1,10 @@
-<div id="main_content_rhs_wide">
-	<h2>Report Edit</h2>
-	<h3>Timber Survey</h3>
-	<hr />
-	<form method="post">
 		<div class="form_fields">
 			<label>Opening Paragraph</label>
 			<textarea name="data[timber_serv_opening_paragraph]"><?php if($data['timber_serv_opening_paragraph']): h($data['timber_serv_opening_paragraph']) ?><?php else: ?>A detailed examination was carried out to determine the presence of any wood boring insects and/or wood rotting fungi, the results of this survey are as follows:
 			<?php endif; ?>
 			</textarea>
+			
+		<?php if($edit_ctx): ?>
 			<hr />
 			<h4>Observations</h4>
 			<div class="timber_surv_observation"></div>
@@ -49,7 +46,5 @@
 				})
 			});
 			</script>
+		<?php endif; ?>
 		</div>
-		<?php include "edit_nav.php" ?>
-	</form>
-</div>
