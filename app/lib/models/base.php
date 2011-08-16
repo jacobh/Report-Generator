@@ -19,8 +19,8 @@ class ModelBase {
 	public static function create($data = array()) {
 		$table_name = self::table_name();
 		$class_name = get_called_class();
-		self::$pdo->query("INSERT INTO $table_name () VALUES ()");
-		$stmt = self::$pdo->query("SELECT * FROM $table_name WHERE id = LAST_INSERT_ID()");
+		self::$pdo->query("INSERT INTO `$table_name` () VALUES ()");
+		$stmt = self::$pdo->query("SELECT * FROM `$table_name` WHERE id = LAST_INSERT_ID()");
 		$obj = new $class_name($stmt->fetch(PDO::FETCH_ASSOC), false);
 		$obj->created_at = time();
 		foreach($data as $k => $v) {
@@ -45,7 +45,7 @@ class ModelBase {
 			}
 			$sets .= "$k = ? ";
 		}
-		$stmt = self::$pdo->prepare("UPDATE $table_name SET $sets WHERE id = ?");
+		$stmt = self::$pdo->prepare("UPDATE `$table_name` SET $sets WHERE id = ?");
 		$params[] = $this->id;
 		$stmt->execute($params);
 	}
@@ -104,13 +104,13 @@ class ModelBase {
 	
 	public static function delete($id) {
 		$table = self::table_name();
-		$stmt = self::$pdo->prepare("DELETE FROM $table WHERE id = ?");
+		$stmt = self::$pdo->prepare("DELETE FROM `$table` WHERE id = ?");
 		$stmt->execute(array($id));
 	}
 	
 	public function destroy() {
 		$table = self::table_name();
-		$stmt = self::$pdo->prepare("DELETE FROM $table WHERE id = ?");
+		$stmt = self::$pdo->prepare("DELETE FROM `$table` WHERE id = ?");
 		$stmt->execute(array($this->id));
 	}
 	
@@ -118,7 +118,7 @@ class ModelBase {
 		$model_class = get_called_class();
 		$objects = array();
 		$table = self::table_name();
-		$stmt = self::$pdo->prepare("SELECT * FROM $table " . ($order ? "ORDER BY $order" : ""));
+		$stmt = self::$pdo->prepare("SELECT * FROM `$table` " . ($order ? "ORDER BY $order" : ""));
 		$stmt->execute();
 		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			$objects[] = new $model_class($row);
@@ -134,7 +134,7 @@ class ModelBase {
 		if(preg_match('/^find_by_(?<column>[a-z_]+)$/', $name, $matches)) {
 			$model_class = get_called_class();
 			$table = self::table_name();
-			$stmt = self::$pdo->prepare("SELECT * FROM $table WHERE $matches[column] = ?");
+			$stmt = self::$pdo->prepare("SELECT * FROM `$table` WHERE $matches[column] = ?");
 			$stmt->execute(array($arguments[0]));
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 				return new $model_class($row);
@@ -144,7 +144,7 @@ class ModelBase {
 		if(preg_match('/^by_(?<column>[a-z_]+)$/', $name, $matches)) {
 			$model_class = get_called_class();
 			$table = self::table_name();
-			$stmt = self::$pdo->prepare("SELECT * FROM $table WHERE $matches[column] = ?");
+			$stmt = self::$pdo->prepare("SELECT * FROM `$table` WHERE $matches[column] = ?");
 			$stmt->execute(array($arguments[0]));
 			$objects = array();
 			while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
