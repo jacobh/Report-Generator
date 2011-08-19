@@ -1,12 +1,21 @@
 		<div class="form_fields">
 			<label>Opening Paragraph</label>
-			<textarea name="data[introduction_opening_paragraph]"><?php h($data['introduction_opening_paragraph']) ?></textarea>
+			<?php render_edit_control("textarea", "data[introduction_opening_paragraph]",
+				$data['introduction_opening_paragraph'], $defaults['introduction_opening_paragraph']) ?>
+				
 			<label>About The Survey</label>
-			<textarea name="data[introduction_about_the_survey]"><?php h($data['introduction_about_the_survey']) ?></textarea>
+				<?php render_edit_control("textarea", "data[introduction_about_the_survey]",
+					$data['introduction_about_the_survey'], $defaults['introduction_about_the_survey']) ?>
+
 			<label>Methodology</label>
-			<textarea name="data[introduction_methodology]"><?php h($data['introduction_methodology']) ?></textarea>
+			<?php render_edit_control("textarea", "data[introduction_methodology]",
+				$data['introduction_methodology'], $defaults['introduction_methodology']) ?>
+			
 			<label>The Report</label>
-			<textarea name="data[introduction_the_report]"><?php h($data['introduction_the_report']) ?></textarea>
+			<?php render_edit_control("textarea", "data[introduction_the_report]",
+				$data['introduction_the_report'], $defaults['introduction_the_report']) ?>
+			
 			<label>Findings / Recomendations</label>
-			<textarea name="data[introduction_findings_recomendations]"><?php h($data['introduction_findings_recomendations']) ?></textarea>
+			<?php render_edit_control("textarea", "data[introduction_opening_paintroduction_findings_recomendationsragraph]",
+				$data['introduction_findings_recomendations'], $defaults['introduction_findings_recomendations']) ?>
 		</div>
