@@ -26,21 +26,28 @@
 				<label>Surveyor</label>
 					<input name="other_data[3][our_surveyer]" type="text" value="<?php h(isset($prop['surveyer']) ? $prop['surveyer'] : 'Bryan Campbell C.S.R.T.'); ?>" />
 				<label>Company</label>
-					<input name="data[our_company]" type="text" value="<?php h(isset($data['our_company']) ? $data['our_company'] : 'Ambient Property Solutions Ltd'); ?>" />
+					<?php render_edit_control("input", "data[our_company]",
+						$data['our_company'], $defaults['our_company']) ?>
 				<label>Address</label>
-					<input name="data[our_address]" type="text" value="<?php h(isset($data['our_address']) ? $data['our_address'] : 'Unit 152'); ?>" />
-					<input name="data[our_city]" type="text" value="<?php h(isset($data['our_city']) ? $data['our_city'] : 'Birmingham'); ?>" />
-					<input name="data[our_postcode]" type="text" value="<?php h(isset($data['our_postcode']) ? $data['our_postcode'] : 'B3 2EW'); ?>" />
+					<?php render_edit_control("input", "data[our_address]",
+						$data['our_address'], $defaults['our_address']) ?>
+					<?php render_edit_control("input", "data[our_city]",
+						$data['our_city'], $defaults['our_city']) ?>
+					<?php render_edit_control("input", "data[our_postcode]",
+						$data['our_postcode'], $defaults['our_postcode']) ?>
 				<label>Telephone</label>
-					<input name="data[our_telephone]" type="text" value="<?php h(isset($data['our_telephone']) ? $data['our_telephone'] : '0845 434 7772'); ?>" />
+					<?php render_edit_control("input", "data[our_telephone]",
+						$data['our_telephone'], $defaults['our_telephone']) ?>
 				<label>Fax</label>
-					<input name="data[our_fax]" type="text" value="<?php h(isset($data['our_fax']) ? $data['our_fax'] : '0121 460 1027'); ?>" />
+					<?php render_edit_control("input", "data[our_fax]",
+						$data['our_fax'], $defaults['our_fax']) ?>
 				<label>Email</label>
-					<input name="data[our_email]" type="text" value="<?php h(isset($data['our_email']) ? $data['our_email'] : 'info@ambientpropertysolutions.co.uk'); ?>" />
+					<?php render_edit_control("input", "data[our_email]",
+						$data['our_email'], $defaults['our_email']) ?>
 			<hr />
 			<h3>Message from the Surveyor</h3>
-			<textarea name="data[message]"><?php if(isset($data['message'])) { h($data['message']); } else {
-	?>Condensation is usually caused by a combination of circumstances, and so a single factor remedy is unlikely to resolve the problem completely, the methods described will all assist in reducing the conditions where sub floor condensation can occur, however I would suggest a further discussion in which we can discuss the options or alternatives in further detail.<?php } ?></textarea>
+			<?php render_edit_control("textarea", "data[message]",
+				$data['message'], $defaults['message']) ?>
 			<hr />
 		<?php if($edit_ctx): ?>
 			<h3>Recommended Items</h3>
