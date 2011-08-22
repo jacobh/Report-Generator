@@ -39,7 +39,6 @@
 			<label>Nomenclature</label>
 			<?php render_edit_control("textarea", "data[nomenclature]",
 				$data['nomenclature'], $defaults['nomenclature']) ?>
-				<textarea name="data[nomenclature]"><?php h($data['nomenclature']) ?></textarea>
 			<label>Limitations/Restrictions</label>
 			<?php render_edit_control("textarea", "data[limitations]",
 				$data['limitations'], $defaults['limitations']) ?>
