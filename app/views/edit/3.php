@@ -37,7 +37,10 @@
 				<textarea name="data[point_of_reference]"><?php h($data['point_of_reference']) ?></textarea>
 		<?php endif; ?>
 			<label>Nomenclature</label>
+			<?php render_edit_control("textarea", "data[nomenclature]",
+				$data['nomenclature'], $defaults['nomenclature']) ?>
 				<textarea name="data[nomenclature]"><?php h($data['nomenclature']) ?></textarea>
 			<label>Limitations/Restrictions</label>
-				<textarea name="data[limitations]"><?php h($data['limitations']) ?></textarea>
+			<?php render_edit_control("textarea", "data[limitations]",
+				$data['limitations'], $defaults['limitations']) ?>
 	</div>

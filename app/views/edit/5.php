@@ -1,8 +1,11 @@
 		<div class="form_fields">			
 			<label>Opening Infobox</label>
-			<textarea name="data[conden_rep_opening_information]"><?php h($data['conden_rep_opening_information']) ?></textarea>
+			<?php render_edit_control("textarea", "data[conden_rep_opening_information]",
+				$data['conden_rep_opening_information'], $defaults['conden_rep_opening_information']) ?>
+				
 			<label>Relative Humidity Readings Information</label>
-			<textarea name="data[conden_rep_relative_humidity_readings_information]"><?php h($data['conden_rep_relative_humidity_readings_information']) ?></textarea>
+			<?php render_edit_control("textarea", "data[conden_rep_relative_humidity_readings_information]",
+				$data['conden_rep_relative_humidity_readings_information'], $defaults['conden_rep_relative_humidity_readings_information']) ?>
 			
 			<?php if($edit_ctx): ?>
 				<hr />
