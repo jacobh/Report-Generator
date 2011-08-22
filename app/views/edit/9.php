@@ -23,8 +23,10 @@
 				<hr />
 			<?php endif; ?>
 			<h3>Our Details</h3><!--probably base this on some options on the settings page-->
-				<label>Surveyor</label>
-					<input name="other_data[3][our_surveyer]" type="text" value="<?php h(isset($prop['surveyer']) ? $prop['surveyer'] : 'Bryan Campbell C.S.R.T.'); ?>" />
+				<?php if($edit_ctx): ?>
+					<label>Surveyor</label>
+						<input name="other_data[3][our_surveyer]" type="text" value="<?php h(isset($prop['surveyer']) ? $prop['surveyer'] : 'Bryan Campbell C.S.R.T.'); ?>" />
+				<?php endif; ?>
 				<label>Company</label>
 					<?php render_edit_control("input", "data[our_company]",
 						$data['our_company'], $defaults['our_company']) ?>
