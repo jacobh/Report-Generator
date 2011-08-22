@@ -58,17 +58,19 @@ function render_edit_control($type, $name, $value, $defaults) {
 			$(function() {
 				$(".__add_preset").click(function() {
 					var li = $("<li>").css({
-						"list-style": "disc !important",
-						"margin-bottom": "12px",
-						"padding-bottom": "12px",
-						"border-bottom": "1px solid #cccccc",
+						"list-style": "disc !important"
 					});
 					var typ = $(this).parents("ul").attr("rg-type");
 					if(typ == "textarea") {
+						li.css({
+							"margin-bottom": "12px",
+							"padding-bottom": "12px",
+							"border-bottom": "1px solid #cccccc",
+						});
 						li.append($("<div>").text("Preset Text:"));
 						li.append($("<textarea>").css({ "width": "400px", "padding": "4px" }).attr("name", $(this).parents("ul").attr("rg-name") + "[]"));
 						li.append($("<br>"));
-					} else if(type == "input") {
+					} else if(typ == "input") {
 						li.append($("<input>").css({ "width": "600px", "padding": "4px" }).attr("name", $(this).parents("ul").attr("rg-name") + "[]"));
 					}
 					li.append($("<a>").attr({ "href": "#" }).click(function() { $(this).parents("li").remove(); }).text("delete"));
@@ -82,18 +84,19 @@ function render_edit_control($type, $name, $value, $defaults) {
 				$(".__edit_this_preset").click(function() {
 					var _li = $(this).parents("li");
 					_li.hide();
-					var li = $("<li>").css({
-						"list-style": "disc !important",
-						"margin-bottom": "12px",
-						"padding-bottom": "12px",
-						"border-bottom": "1px solid #cccccc",
-					});
+					var li = $("<li>");
 					var typ = $(this).parents("ul").attr("rg-type");
 					if(typ == "textarea") {
+						li.css({
+							"list-style": "disc !important",
+							"margin-bottom": "12px",
+							"padding-bottom": "12px",
+							"border-bottom": "1px solid #cccccc",
+						});
 						li.append($("<div>").text("Preset Text:"));
 						li.append($("<textarea>").css({ "width": "400px", "padding": "4px" }).attr("name", $(this).parents("ul").attr("rg-name") + "[]").val(_li.find("input").val()));
 						li.append($("<br>"));
-					} else if(type == "input") {
+					} else if(typ == "input") {
 						li.append($("<input>").css({ "width": "600px", "padding": "4px" }).attr("name", $(this).parents("ul").attr("rg-name") + "[]").val(_li.find("input").val()));
 					}
 					li.append($("<a>").attr({ "href": "#" }).click(function() { $(this).parents("li").remove(); }).text("delete"));

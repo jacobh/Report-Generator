@@ -21,7 +21,11 @@ if(!$params["page"]) {
 		$data = $def->data;
 		$def->save();
 	}
-	view("settings", array("page" => $params["page"], "data" => $data));
+	if($params["goto"]) {
+		redirect("settings.php", array("page" => $params["goto"]));
+	} else {
+		view("settings", array("page" => $params["page"], "data" => $data));
+	}
 } else {
 	redirect("settings.php");
 }

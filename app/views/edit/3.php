@@ -26,7 +26,8 @@
 				<input name="data[survey_type]" type="text" value="<?php h($data['survey_type']) ?>" />
 		<?php endif; ?>
 			<label>Surveyor</label>
-				<input name="data[surveyer]" type="text" value="<?php h(isset($data['surveyer']) ? $data['surveyer'] : 'Bryan Campbell C.S.R.T.') ?>" />
+			<?php render_edit_control("input", "data[surveyer]",
+				$data['surveyer'], $defaults['surveyer']) ?>
 			<hr />	
 		<?php if($edit_ctx): ?>
 			<label>Property Description</label>
